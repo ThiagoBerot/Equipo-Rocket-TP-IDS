@@ -1,7 +1,15 @@
-/* Estilos básicos para la barra de navegación */
-html{
-    width: fit-content;
+
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* RESET */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+/* Estilos básicos para la barra de navegación */
 
 nav {
     overflow: hidden;
@@ -12,6 +20,10 @@ nav {
 .navbar {
     background-color: #333;
     width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    font-family: "Epilogue", sans-serif;
 }
 nav a {
     color: #f2f2f2;
@@ -30,10 +42,64 @@ nav a:hover {
 }
 
 /* Estilos para el contenido de la página */
+
+.logoPetTracker{
+    width: 8rem;
+}
+
+.main{
+    margin: 0 0 100vh 0;
+    font-family: "Epilogue", sans-serif;
+}
+
+.grillaPerdidos{
+    display: grid;
+}
+
+.positionRelative{
+    position: relative;
+    z-index: 2;
+}
+
 .content {
     padding: 20px;
 }
 
 .img-logo {
     max-width: 70px;
+}
+
+.footer{
+    position: fixed;
+    z-index: 1;
+    padding: 2rem;
+    height: 100vh;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Epilogue", sans-serif;
+    gap: 0.5rem;
+}
+
+.footerInfo{
+    padding: 1rem 5rem;
+}
+
+.footerContacto{
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: end;
+}
+
+.footerMail{
+    color: #000000;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footerMail:hover{
+    color: chocolate; /*color de prueba, CAMBIARLO*/
 }
