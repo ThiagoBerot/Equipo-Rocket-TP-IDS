@@ -9,10 +9,10 @@
 <body>
 
 <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#mapa">Mapa</a>
-    <a href="#perdidos">Perdidos Recientemente</a>
-    <a href="#encontraste">¿Encontraste una Mascota?</a>
+    <a href="#" onclick="mostrarContenido('inicio')">Inicio</a>
+    <a href="#" onclick="mostrarContenido('mapa')">Mapa</a>
+    <a href="#" onclick="mostrarContenido('perdidos')">Perdidos Recientemente</a>
+    <a href="#" onclick="mostrarContenido('encontraste')">¿Encontraste una Mascota?</a>
 </nav>
 
 <div class="content">
@@ -22,21 +22,23 @@
         <p>Bienvenido a nuestra página de búsqueda de mascotas.</p>
     </section>
 
-    <section id="mapa">
+    <section id="mapa" style="display: none;">
         <h2>Mapa</h2>
         <p>Aquí puedes encontrar un mapa con ubicaciones importantes.</p>
     </section>
 
-    <section id="perdidos">
+    <section id="perdidos" style="display: none;">
         <h2>Perdidos Recientemente</h2>
         <p>Una lista de mascotas perdidas recientemente.</p>
     </section>
 
-    <section id="encontraste">
+    <section id="encontraste" style="display: none;">
         <h2>¿Encontraste una Mascota?</h2>
         <p>Información sobre qué hacer si encuentras una mascota perdida.</p>
     </section>
 </div>
+
+<script src="back.js"></script> <!-- Enlace al archivo JavaScript -->
 
 </body>
 </html>
