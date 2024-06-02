@@ -16,7 +16,6 @@
 </nav>
 
 <div class="content">
-    <!-- Contenido de las subpáginas -->
     <section id="inicio">
         <h2>Página de Inicio</h2>
         <p>Somos una organización que Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -25,7 +24,37 @@
 
     <section id="mapa" style="display: none;">
         <h2>Mapa</h2>
-        <p>Aquí puedes encontrar un mapa con ubicaciones importantes.</p>
+        <!-- Filtro -->
+        <div class="filtro">
+            <label for="filtroColor">Color:</label>
+            <select id="filtroColor">
+                <option value="todos">Todos</option>
+                <option value="negro">Negro</option>
+                <option value="blanco">Blanco</option>
+                <option value="marrón">Marrón</option>
+                <option value="naranja">Marrón</option>
+                <option value="manchas">Marrón</option>
+
+            </select>
+            <label for="filtroRaza">Raza:</label>
+            <select id="filtroRaza">
+                <option value="todos">Todos</option>
+                <option value="labrador">Labrador</option>
+                <option value="pastor_aleman">Pastor Alemán</option>
+                <option value="siames">Siamés</option>
+
+            </select>
+            <label for="filtroEdad">Edad:</label>
+            <select id="filtroEdad">
+                <option value="todos">Todos</option>
+                <option value="cachorro">Cachorro</option>
+                <option value="adulto">Adulto</option>
+            </select>
+            <label for="filtroFecha">Fecha de Desaparición:</label>
+            <input type="date" id="filtroFecha">
+        </div>
+
+        <div id="mapa" style="height: 400px;"></div> <!-- Acá va la api -->
     </section>
 
     <section id="perdidos" style="display: none;">
