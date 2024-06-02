@@ -1,86 +1,101 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pet Tracker</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Enlace al archivo CSS -->
-</head>
-<body>
+    <link
+      rel="shortcut icon"
+      href="static/img/logo-borderless.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="static/css/styles.css" />
+    <!-- Enlace al archivo CSS -->
+  </head>
+  <body>
+    <div class="navbar">
+      <nav>
+        <img src="static/img/logo borderless.png" class="img-logo" alt="Logo" />
+        <a href="#" onclick="mostrarContenido('inicio')">Inicio</a>
+        <a href="#" onclick="mostrarContenido('mapa')">Mapa</a>
+        <a href="#" onclick="mostrarContenido('perdidos')"
+          >Perdidos Recientemente</a
+        >
+        <a href="#" onclick="mostrarContenido('encontraste')"
+          >¿Encontraste una Mascota?</a
+        >
+      </nav>
+    </div>
 
-<nav>
-    <a href="#" onclick="mostrarContenido('inicio')">Inicio</a>
-    <a href="#" onclick="mostrarContenido('mapa')">Mapa</a>
-    <a href="#" onclick="mostrarContenido('perdidos')">Perdidos Recientemente</a>
-    <a href="#" onclick="mostrarContenido('encontraste')">¿Encontraste una Mascota?</a>
-</nav>
-
-<div class="content">
-    <section id="inicio">
+    <div class="content">
+      <section id="inicio">
         <h2>Página de Inicio</h2>
-        <p>Somos una organización que Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>
+          Somos una organización que Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+          irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+          sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
         <h3>Testimonios</h3>
-    </section>
+      </section>
 
-    <section id="mapa" style="display: none;">
+      <section id="mapa" style="display: none">
         <h2>Mapa</h2>
         <!-- Filtro -->
         <div class="filtro">
-            <label for="filtromascota">Mascota:</label>
-            <select id="filtromascota">
-                <option value="todos">Todos</option>    
-                <option value="gato">Gato</option>
-                <option value="perro">Perro</option>
-
-            </select>    
-            <label for="filtroColor">Color:</label>
-            <select id="filtroColor">
-                <option value="todos">Todos</option>
-                <option value="negro">Negro</option>
-                <option value="blanco">Blanco</option>
-                <option value="marrón">Marrón</option>
-                <option value="naranja">Naranja</option>
-                <option value="manchas">Manchas</option>
-
-            </select>
-            <label for="filtroRaza">Raza:</label>
-            <select id="filtroRaza">
-                <option value="todos">Todos</option>
-                <option value="labrador">Labrador</option>
-                <option value="pastor_aleman">Pastor Alemán</option>
-                <option value="siames">Siamés</option>
-
-            </select>
-            <label for="filtroEdad">Edad:</label>
-            <select id="filtroEdad">
-                <option value="todos">Todos</option>
-                <option value="cachorro">Cachorro</option>
-                <option value="adulto">Adulto</option>
-            </select>
-            <label for="filtroFecha">Fecha de Desaparición:</label>
-            <input type="date" id="filtroFecha">
+          <label for="filtroColor">Color:</label>
+          <select id="filtroColor">
+            <option value="todos">Todos</option>
+            <option value="negro">Negro</option>
+            <option value="blanco">Blanco</option>
+            <option value="marrón">Marrón</option>
+            <option value="naranja">Naranja</option>
+            <option value="manchas">Manchas</option>
+          </select>
+          <label for="filtroRaza">Raza:</label>
+          <select id="filtroRaza">
+            <option value="todos">Todos</option>
+            <option value="labrador">Labrador</option>
+            <option value="pastor_aleman">Pastor Alemán</option>
+            <option value="siames">Siamés</option>
+          </select>
+          <label for="filtroEdad">Edad:</label>
+          <select id="filtroEdad">
+            <option value="todos">Todos</option>
+            <option value="cachorro">Cachorro</option>
+            <option value="adulto">Adulto</option>
+          </select>
+          <label for="filtroFecha">Fecha de Desaparición:</label>
+          <input type="date" id="filtroFecha" />
         </div>
 
-        <div id="mapa" style="height: 400px;"></div> <!-- Acá va la api -->
-    </section>
+        <div id="mapa" style="height: 400px"></div>
+        <!-- Acá va la api -->
+      </section>
 
-    <section id="perdidos" style="display: none;">
+      <section id="perdidos" style="display: none">
         <h2>Perdidos Recientemente</h2>
         <p>Una lista de mascotas perdidas recientemente.</p>
-    </section>
+      </section>
 
-    <section id="encontraste" style="display: none;">
+      <section id="encontraste" style="display: none">
         <h2>¿Encontraste una Mascota?</h2>
         <p>Información sobre qué hacer si encuentras una mascota perdida.</p>
-    </section>
-</div>
+      </section>
+    </div>
 
-<footer>
-    <p>Contacto: <a href="mailto:PetTracker@gmail.com">PetTracker@gmail.com</a> | Teléfono: 0800-777-2354</p>
-</footer>
+    <footer>
+      <p>
+        Contacto:
+        <a href="mailto:PetTracker@gmail.com">PetTracker@gmail.com</a> |
+        Teléfono: 0800-777-2354
+      </p>
+    </footer>
 
-<script src="script.js"></script> <!-- Enlace al archivo JavaScript -->
-
-</body>
+    <script src="script.js"></script>
+    <!-- Enlace al archivo JavaScript -->
+  </body>
 </html>
-
