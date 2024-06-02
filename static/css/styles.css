@@ -1,4 +1,8 @@
 /* Estilos básicos para la barra de navegación */
+html{
+    width: fit-content;
+}
+
 nav {
     overflow: hidden;
     display: inline-flex;
