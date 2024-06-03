@@ -1,39 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pet Tracker</title>
-    <link
-      rel="shortcut icon"
-      href="../static/img/logo-borderless.ico"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="../static/css/styles.css" />
-    <link rel="stylesheet" href="../static/css/encontraste_mascota.css" />
-    <!-- Enlace al archivo CSS -->
-  </head>
-  <body>
-    <div class="navbar">
-      <nav>
-        <img
-          src="../static/img/logo borderless.png"
-          class="img-logo"
-          alt="Logo"
-        />
-        <a href="index.html" onclick="mostrarContenido('inicio')">Inicio</a>
-        <a href="#" onclick="mostrarContenido('mapa')">Mapa</a>
-        <a href="#" onclick="mostrarContenido('perdidos')"
-          >Perdidos Recientemente</a
-        >
-        <a
-          href="encontraste_una_mascota.html"
-          onclick="mostrarContenido('encontraste')"
-          >¿Encontraste una Mascota?</a
-        >
-      </nav>
-    </div>
+{% extends 'base.html' %}
 
+{% block title %}¿Encontraste una mascota?{% endblock %}
+
+{% block cssad %}<link rel="stylesheet" href="../static/css/encontraste_mascota.css" /> {% endblock %}
+
+{% block main %}
+<main class="main positionRelative">
     <div class="encontraste_mascota_content">
       <h1>¿Encontraste una mascota?</h1>
       <h3>
@@ -94,16 +66,5 @@
         height="300"
       />
     </div>
-
-    <footer>
-      <p>
-        Contacto:
-        <a href="mailto:PetTracker@gmail.com">PetTracker@gmail.com</a> |
-        Teléfono: 0800-777-2354
-      </p>
-    </footer>
-
-    <script src="script.js"></script>
-    <!-- Enlace al archivo JavaScript -->
-  </body>
-</html>
+  </main>
+  {% endblock %}

@@ -1,7 +1,7 @@
 function mostrarContenido(id) {
     // Ocultar todas las secciones
     var secciones = document.querySelectorAll('.content section');
-    secciones.forEach(function(seccion) {
+    secciones.forEach(function (seccion) {
         seccion.style.display = 'none';
     });
 
