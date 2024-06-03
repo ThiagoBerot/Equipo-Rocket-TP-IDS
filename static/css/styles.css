@@ -1,4 +1,6 @@
 
+/*FONTS*/
+
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* RESET */
@@ -16,15 +18,23 @@ nav {
     display: inline-flex;
     align-items: center;
     margin: 0px;
+    gap: 0.5rem;
 }
+
 .navbar {
     background-color: #333;
     width: 100%;
+    padding: 0 1rem;
     position: sticky;
     top: 0;
     z-index: 3;
-    font-family: "Epilogue", sans-serif;
 }
+
+.img-logo {
+    max-width: 70px;
+    margin-inline: 1rem;
+}
+
 nav a {
     color: #f2f2f2;
     text-align: center;
@@ -33,41 +43,74 @@ nav a {
     height: fit-content;
     justify-content: center;
     font-size: 17px;
+    transition: 0.5s;
 }
 
 nav a:hover {
     background-color: #ddd;
     border-radius: 5px;
     color: black;
+    transform: scale(1.05);
 }
 
 /* Estilos para el contenido de la página */
-
-.logoPetTracker{
-    width: 8rem;
-}
-
-.main{
-    margin: 0 0 100vh 0;
-    font-family: "Epilogue", sans-serif;
-}
-
-.grillaPerdidos{
-    display: grid;
-}
 
 .positionRelative{
     position: relative;
     z-index: 2;
 }
 
+.fontEpilogue{
+    font-family: "Epilogue", sans-serif;
+}
+
+.contenedor{
+    max-width: 1500px;
+}
+
 .content {
     padding: 20px;
 }
 
-.img-logo {
-    max-width: 70px;
+.main{
+    margin: 0 0 100vh 0;
+    background-color: #FFFFFF;
 }
+
+/*PERDIDOS RECIENTEMENTE*/
+
+.grillaPerdidos{
+    padding: 1rem;
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.grillaTarjeta{
+    display: flex;
+    gap: 1rem;
+    background-color: #333; /*tambien, color a determinar*/
+    border-radius: 15px;
+    color: #FFFFFF;
+}
+
+.grillaImagen{
+    border-radius: 25px;
+    width: 20rem;
+    max-width: 60%;
+    padding: 0.5rem;
+}
+
+.grillaInfo{
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+/*FOOTER*/
 
 .footer{
     position: fixed;
@@ -79,8 +122,11 @@ nav a:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: "Epilogue", sans-serif;
     gap: 0.5rem;
+}
+
+.logoPetTracker{
+    width: 8rem;
 }
 
 .footerInfo{
