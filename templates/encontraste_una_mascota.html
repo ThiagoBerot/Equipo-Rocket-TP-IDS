@@ -2,7 +2,9 @@
 
 {% block title %}¿Encontraste una mascota?{% endblock %}
 
-{% block cssad %}<link rel="stylesheet" href="../static/css/encontraste_mascota.css" /> {% endblock %}
+{% block cssad %}
+<link rel="stylesheet" href="{{ url_for('static', filename="css/encontraste_mascota.css") }}" /> 
+{% endblock %}
 
 {% block main %}
 <main class="main positionRelative">
