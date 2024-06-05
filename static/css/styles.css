@@ -80,7 +80,7 @@ nav a:hover {
 /*PERDIDOS RECIENTEMENTE*/
 
 .grillaPerdidos{
-    padding: 1rem;
+    padding: 1.5rem;
     margin-top: 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -89,7 +89,7 @@ nav a:hover {
 
 .grillaTarjeta{
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     background-color: #333; /*tambien, color a determinar*/
     border-radius: 15px;
     color: #FFFFFF;
@@ -97,7 +97,7 @@ nav a:hover {
 
 .grillaImagen{
     border-radius: 25px;
-    width: 20rem;
+    width: 18rem;
     max-width: 60%;
     padding: 0.5rem;
 }
