@@ -68,8 +68,8 @@ nav a:hover {
     max-width: 1500px;
 }
 
-.content {
-   /* padding: 20px;*/
+.contenido{
+    padding: 20px;
 }
 
 .main{
@@ -322,7 +322,7 @@ width: 20%;
 
 .grillaTarjeta{
     display: flex;
-    gap: 1.5rem;
+    gap: 1.1rem;
     background-color: #333; /*tambien, color a determinar*/
     border-radius: 15px;
     color: #FFFFFF;
@@ -360,10 +360,17 @@ width: 20%;
 
 .logoPetTracker{
     width: 8rem;
+    margin-bottom: 0.5rem;
+}
+
+.footerTitle{
+    font-size: 2rem;
+    font-weight: 600;
 }
 
 .footerInfo{
-    padding: 1rem 5rem;
+    padding: 1rem 8rem;
+    font-size: 1.1rem;
 }
 
 .footerContacto{
@@ -371,12 +378,14 @@ width: 20%;
     display: flex;
     gap: 1rem;
     align-items: end;
+    font-size: 1.8rem;
 }
 
 .footerMail{
     color: #000000;
     text-decoration: none;
     transition: 0.3s;
+    font-size: 1.1rem;
 }
 
 .footerMail:hover{

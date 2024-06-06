@@ -12,7 +12,7 @@
 
     <main class="main positionRelative fontEpilogue">
       <div class="content">
-        <section >
+        <section>
           <div id="Inicio">
             <h1 class="Box_Grey" id="Buscar">Buscamos a Tu Mascota Perdida</h1>
             <button class="Box_Grey" id="Comenzar_Ya" href="#" onclick="mostrarContenido('perdidos')">Comenzar Ya</button>
@@ -114,53 +114,21 @@
             </div>
           </div>
         </section>
-        <section id="mapa" style="display: none">
-          <h2>Mapa</h2>
-          <!-- Filtro -->
-          <div class="filtro">
-            <label for="filtroColor">Color:</label>
-            <select id="filtroColor">
-              <option value="todos">Todos</option>
-              <option value="negro">Negro</option>
-              <option value="blanco">Blanco</option>
-              <option value="marrón">Marrón</option>
-              <option value="naranja">Naranja</option>
-              <option value="manchas">Manchas</option>
-            </select>
-            <label for="filtroRaza">Raza:</label>
-            <select id="filtroRaza">
-              <option value="todos">Todos</option>
-              <option value="labrador">Labrador</option>
-              <option value="pastor_aleman">Pastor Alemán</option>
-              <option value="siames">Siamés</option>
-            </select>
-            <label for="filtroEdad">Edad:</label>
-            <select id="filtroEdad">
-              <option value="todos">Todos</option>
-              <option value="cachorro">Cachorro</option>
-              <option value="adulto">Adulto</option>
-            </select>
-            <label for="filtroFecha">Fecha de Desaparición:</label>
-            <input type="date" id="filtroFecha" />
-          </div>
-
-          <div id="mapa" style="height: 400px"></div>
-          <!-- Acá va la api -->
-        </section>
 
         <section id="perdidos" style="display: none">
-          <h2>Perdidos Recientemente</h2>
-          <p>Una lista de mascotas perdidas recientemente.</p>
-          <div class="grillaPerdidos">
-            <div class="grillaTarjeta">
-              <img class="grillaImagen" src="../static/img/gatoguerra.jpeg" />
-              <div class="grillaInfo">
-                <h3>Nombre:</h3>
-                <h3>Raza:</h3>
-                <h3>Color:</h3>
-                <h3>Edad:</h3>
-                <h3>Fecha de desaparición:</h3>
-              </div>
+          <div class="contenedor">
+            <div class="card" style="width: 18rem;">
+                <img class="img1" src="/static/img/gatitomc.jpeg" width="280" height="280">
+                <div class="'card-body">
+                    <p class="card-text">Gracias!</p>
+                    <div class="rating">
+                         <i class="bi bi-star-fill estrella"></i>
+                         <i class="bi bi-star-fill estrella"></i>
+                         <i class="bi bi-star-fill estrella"></i>
+                         <i class="bi bi-star-fill estrella"></i>
+                         <i class="bi bi-star-fill estrella"></i>
+                    </div>
+                </div>
             </div>
             <div class="card2" style="width: 18rem;">
                  <img class="img3" src="/static/img/perritomc.jpeg" width="280" height="280">
