@@ -1,43 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pet Tracker</title>
-    <link
-      rel="shortcut icon"
-      href="../static/img/logo-borderless.ico"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="../static/css/styles.css" />
-    <link rel="stylesheet" href="../static/css/encontraste_mascota.css" />
-    <!-- Enlace al archivo CSS -->
-  </head>
-  <body>
-    <div class="navbar">
-      <nav>
-        <img
-          src="../static/img/logo borderless.png"
-          class="img-logo"
-          alt="Logo"
-        />
-        <a href="index.html" onclick="mostrarContenido('inicio')">Inicio</a>
-        <a href="#" onclick="mostrarContenido('mapa')">Mapa</a>
-        <a href="#" onclick="mostrarContenido('perdidos')"
-          >Perdidos Recientemente</a
-        >
-        <a
-          href="encontraste_una_mascota.html"
-          onclick="mostrarContenido('encontraste')"
-          >¿Encontraste una Mascota?</a
-        >
-      </nav>
-    </div>
+{% extends 'base.html' %}
 
-    <div class="formulario-enviado-content">
-      <h1>
-        Su formulario ha sido enviado correctamente ¡Gracias por colaborar!
-      </h1>
-    </div>
-  </body>
-</html>
+{% block title %}Su formulario ha sido enviado correctamente ¡Gracias por colaborar!{% endblock %}
+
+{% block cssad %}{% endblock %}
+{% block main %}{% endblock %}
+
