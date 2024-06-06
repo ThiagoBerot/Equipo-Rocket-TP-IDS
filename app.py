@@ -6,6 +6,14 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/mapa')
+def mapa():
+    return render_template('mapa.html')
+
+@app.route('/mascotas')
+def mascotas():
+    return render_template('mascotas.html')
+
 @app.route('/encontraste')
 def encontraste():
     return render_template('encontraste_una_mascota.html')

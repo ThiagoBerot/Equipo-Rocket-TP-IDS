@@ -313,7 +313,7 @@ width: 20%;
 /*PERDIDOS RECIENTEMENTE*/
 
 .grillaPerdidos{
-    padding: 1rem;
+    padding: 1.5rem;
     margin-top: 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -322,7 +322,7 @@ width: 20%;
 
 .grillaTarjeta{
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     background-color: #333; /*tambien, color a determinar*/
     border-radius: 15px;
     color: #FFFFFF;
@@ -330,7 +330,7 @@ width: 20%;
 
 .grillaImagen{
     border-radius: 25px;
-    width: 20rem;
+    width: 18rem;
     max-width: 60%;
     padding: 0.5rem;
 }

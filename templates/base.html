@@ -28,9 +28,9 @@
           alt="Logo"
             />
             <a href="{{ url_for('index') }}" onclick="mostrarContenido('inicio')">Inicio</a>
-            <a href="#" onclick="mostrarContenido('mapa')">Mapa</a>
-            <a href="#" onclick="mostrarContenido('perdidos')">Perdidos Recientemente</a>
-            <a href="{{ url_for('encontraste') }}" onclick="mostrarContenido('encontraste')">¿Encontraste una Mascota?</a>
+            <a href="{{ url_for('mapa') }}">Mapa</a>
+            <a href="{{ url_for('mascotas') }}">Perdidos Recientemente</a>
+            <a href="{{ url_for('encontraste') }}">¿Encontraste una Mascota?</a>
         </nav>
     </header>
 
