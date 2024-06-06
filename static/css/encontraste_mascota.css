@@ -11,6 +11,7 @@ html{
     margin-left: 20px;
     background-color: #aaaaaa;
     border-radius: 15px;
+
 }
 
 .titulo_desc{
@@ -43,7 +44,7 @@ h1{
 
 #formulario{
     display:flex;
-    align-items: flex-end;
+    align-items: flex-start;
     width: auto;
 }
 
@@ -78,7 +79,7 @@ h1{
 
 #boton-formulario{
     font-family: "Roboto Slab", serif;
-    font-size: 100%;
+    font-size: 25px;
     margin-left: 2%;
     border-radius: 15px;
     width: 75%;
@@ -139,7 +140,7 @@ h1{
 
 
 .info_centro_animales2{
-    padding: 10px
+    padding: 10px;
     margin-top: 50px;
     display: flex;
     width: 80%;
