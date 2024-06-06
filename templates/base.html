@@ -13,6 +13,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename="css/styles.css") }}" />
     {% block cssad %}{% endblock %}
     <!-- Enlace al archivo CSS -->
@@ -65,8 +66,10 @@
         | Teléfono: 0800-777-2354
       </p>
     </footer>
-
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
     <script src="{{ url_for('static', filename="js/script.js") }}"></script>
+    
     <!-- Enlace al archivo JavaScript -->
+
   </body>
 </html>
