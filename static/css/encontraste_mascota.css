@@ -1,8 +1,14 @@
 /* FUENTE IMPORTADA DE GOOGLE FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
 
 html{
     height: 100%;
+}
+
+body{
+    font-family: "Epilogue", sans-serif;
+    font-size: large;
 }
 
 .encontraste_mascota_content {
@@ -11,7 +17,6 @@ html{
     margin-left: 20px;
     background-color: #aaaaaa;
     border-radius: 15px;
-
 }
 
 .titulo_desc{
@@ -22,14 +27,13 @@ html{
 
 h1{
     text-align: center;
-    font-family: "Roboto Slab", serif;
-    font-size: 45px;
+    font-size: 50px;
+    font-weight: bold;
     padding: 10px;
 }
 
 .encontraste_mascota_content p{
     text-align: center;
-    font-family: "Roboto Slab", serif;
     font-size: 20px;
     width: 70%;
     margin-left: auto;
@@ -39,7 +43,10 @@ h1{
 .contenedor_img_form{
     display: flex;
     justify-content: center;
-    margin-bottom: 50px;
+}
+
+.contenedor_img_form img{
+    margin-bottom: 10px;
 }
 
 #formulario{
@@ -55,13 +62,30 @@ h1{
     margin: 30px;
 }
 
+#chica_y_gato, #chico_y_perro {
+    margin-left: 75px;
+}
+
 #formulario button{
     align-items: center;
+    width: 100%;
 }
 
 #formulario label{
-    font-family: "Roboto Slab", sans-serif;
-    font-size: 25px;
+    font-size: 20px;
+}
+
+#formulario input, select, textarea{
+    height: 20px;
+    width: 100%;
+    height: 30px;
+    font-size: 20px;
+    color:#6c5e5e;
+    font-weight: bold;
+}
+
+#formulario li{
+    margin-bottom: 20px;
 }
 
 #imagenes img{
@@ -78,7 +102,6 @@ h1{
 }
 
 #boton-formulario{
-    font-family: "Roboto Slab", serif;
     font-size: 25px;
     margin-left: 2%;
     border-radius: 15px;
@@ -101,7 +124,6 @@ h1{
 }
 
 .centros_animales a{
-    font-family: "Roboto Slab", serif;
     font-size: 20px;
 
 }
@@ -109,13 +131,12 @@ h1{
 .centros_animales h2{
     text-align: center;
     font-size: 50px;
-    font-family: "Roboto Slab", serif;
     padding: 10px;
+    font-weight: bold;
 }
 
 .centros_animales p{
-    text-align: start;
-    font-family: "Roboto Slab", serif;
+    text-align: center;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -138,7 +159,6 @@ h1{
     border-radius: 15px;
 }
 
-
 .info_centro_animales2{
     padding: 10px;
     margin-top: 50px;
@@ -150,11 +170,19 @@ h1{
 }
 
 .info_centro_animales1 h2, .info_centro_animales1 h3, .info_centro_animales1 p{
-    font-family: "Roboto Slab", serif;
     margin-right: 30px;
 }
 
 .info_centro_animales2 h2, .info_centro_animales2 h3, .info_centro_animales2 p{
     margin-left: 30px;
-    font-family: "Roboto Slab", serif;
+}
+
+.info_centro_animales1 h2, .info_centro_animales2 h2{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.info_centro_animales1 h3, .info_centro_animales2 h3{
+    font-size: 20px;
+    font-style: italic;
 }
