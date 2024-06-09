@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}Mascotas perdidas{% endblock %}
+
+{% block main %}
+
+<main class="main positionRelative fontEpilogue">
+    <section class="contenido" id="perdidos">
+        <h2>Perdidos Recientemente</h2>
+        <p>Una lista de mascotas perdidas recientemente.</p>
+        <div class="grillaPerdidos">
+          <div class="grillaTarjeta">
+            <img class="grillaImagen" src="{{ url_for('static', filename='img/gatoguerra.jpeg') }}" />
+            <div class="grillaInfo">
+              <h3>Nombre: Ryan</h3>
+              <h3>Raza: Americano de pelo corto</h3>
+              <h3>Color: Gris</h3>
+              <h3>Edad: Adulto</h3>
+              <h3>Fecha de desaparición: 2024-2-23</h3>
+            </div>
+          </div>
+          <div class="grillaTarjeta">
+            <img class="grillaImagen" src="{{ url_for('static', filename='img/gatopose.jpeg') }}" />
+            <div class="grillaInfo">
+              <h3>Nombre: Milo</h3>
+              <h3>Raza: Ragdoll</h3>
+              <h3>Color: Blanco y negro</h3>
+              <h3>Edad: Cachorro</h3>
+              <h3>Fecha de desaparición: 2024-3-11 </h3>
+            </div>
+          </div>
+          <div class="grillaTarjeta">
+            <img class="grillaImagen" src="{{ url_for('static', filename='img/perrolol.jpeg') }}" />
+            <div class="grillaInfo">
+              <h3>Nombre: Pepito</h3>
+              <h3>Raza: Golden retriever</h3>
+              <h3>Color: Marrón claro</h3>
+              <h3>Edad: Cachorro </h3>
+              <h3>Fecha de desaparición: 2024-4-4</h3>
+            </div>
+          </div>
+          <div class="grillaTarjeta">
+            <img class="grillaImagen" src="{{ url_for('static', filename='img/gatoestrella.jpeg') }}" />
+            <div class="grillaInfo">
+              <h3>Nombre:</h3>
+              <h3>Raza:</h3>
+              <h3>Color:</h3>
+              <h3>Edad: Adulto</h3>
+              <h3>Fecha de desaparición:</h3>
+            </div>
+          </div>
+          <div class="grillaTarjeta">
+            <img class="grillaImagen" src="{{ url_for('static', filename='img/perroanteojos.jpeg') }}"/>
+            <div class="grillaInfo">
+              <h3>Nombre:</h3>
+              <h3>Raza:</h3>
+              <h3>Color:</h3>
+              <h3>Edad: Adulto</h3>
+              <h3>Fecha de desaparición:</h3>
+            </div>
+          </div>
+          <div class="grillaTarjeta">
+            <img class="grillaImagen" src="{{ url_for('static', filename='img/perroflor.jpeg') }}" />
+            <div class="grillaInfo">
+              <h3>Nombre:</h3>
+              <h3>Raza:</h3>
+              <h3>Color:</h3>
+              <h3>Edad: Adulto</h3>
+              <h3>Fecha de desaparición:</h3>
+            </div>
+          </div>
+          <div class="grillaTarjeta">
+            <img class="grillaImagen" src="{{ url_for('static', filename='img/gatobaño.jpeg') }}" />
+            <div class="grillaInfo">
+              <h3>Nombre:</h3>
+              <h3>Raza:</h3>
+              <h3>Color:</h3>
+              <h3>Edad: Adulto</h3>
+              <h3>Fecha de desaparición:</h3>
+            </div>
+          </div>
+          <div class="grillaTarjeta">
+            <img class="grillaImagen" src="{{ url_for('static', filename='img/gatohuh.jpeg') }}" />
+            <div class="grillaInfo">
+              <h3>Nombre: Huh?</h3>
+              <h3>Raza:</h3>
+              <h3>Color:</h3>
+              <h3>Edad: Adulto</h3>
+              <h3>Fecha de desaparición:</h3>
+            </div>
+          </div>
+          <div class="grillaTarjeta">
+            <img class="grillaImagen" src="{{ url_for('static', filename='img/perrochorro.jpeg') }}" />
+            <div class="grillaInfo">
+              <h3>Nombre:</h3>
+              <h3>Raza:</h3>
+              <h3>Color:</h3>
+              <h3>Edad: Adulto</h3>
+              <h3>Fecha de desaparición:</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+</main>
+
+{% endblock %}

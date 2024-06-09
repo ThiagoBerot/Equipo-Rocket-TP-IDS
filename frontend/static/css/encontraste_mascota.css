@@ -1,0 +1,160 @@
+/* FUENTE IMPORTADA DE GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+html{
+    height: 100%;
+}
+
+.encontraste_mascota_content {
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color: #aaaaaa;
+    border-radius: 15px;
+
+}
+
+.titulo_desc{
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    text-align: center;
+    font-family: "Roboto Slab", serif;
+    font-size: 45px;
+    padding: 10px;
+}
+
+.encontraste_mascota_content p{
+    text-align: center;
+    font-family: "Roboto Slab", serif;
+    font-size: 20px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contenedor_img_form{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+#formulario{
+    display:flex;
+    align-items: flex-start;
+    width: auto;
+}
+
+.imagenes_form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 30px;
+}
+
+#formulario button{
+    align-items: center;
+}
+
+#formulario label{
+    font-family: "Roboto Slab", sans-serif;
+    font-size: 25px;
+}
+
+#imagenes img{
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#boton-formulario{
+    font-family: "Roboto Slab", serif;
+    font-size: 25px;
+    margin-left: 2%;
+    border-radius: 15px;
+    width: 75%;
+    margin: 10px;
+}
+
+#boton-formulario:hover{
+    background-color: #41814f7e;
+    border-radius: 15px;
+    color: black;
+    transform: scale(1.05);
+}
+
+.centros_animales{
+    text-align: center;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.centros_animales a{
+    font-family: "Roboto Slab", serif;
+    font-size: 20px;
+
+}
+
+.centros_animales h2{
+    text-align: center;
+    font-size: 50px;
+    font-family: "Roboto Slab", serif;
+    padding: 10px;
+}
+
+.centros_animales p{
+    text-align: start;
+    font-family: "Roboto Slab", serif;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info_centro_animales1{
+    background-color: rgba(168, 168, 125, 0.459);
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info_centro_animales1 img, .info_centro_animales2 img{
+    border-radius: 15px;
+}
+
+
+.info_centro_animales2{
+    padding: 10px;
+    margin-top: 50px;
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info_centro_animales1 h2, .info_centro_animales1 h3, .info_centro_animales1 p{
+    font-family: "Roboto Slab", serif;
+    margin-right: 30px;
+}
+
+.info_centro_animales2 h2, .info_centro_animales2 h3, .info_centro_animales2 p{
+    margin-left: 30px;
+    font-family: "Roboto Slab", serif;
+}
