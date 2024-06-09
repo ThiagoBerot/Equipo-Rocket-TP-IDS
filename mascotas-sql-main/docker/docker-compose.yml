@@ -3,7 +3,7 @@ services:
     image: mysql
     restart: always
     ports:
-      - '3304:3306'
+      - '3306:3306'
     environment:
       MYSQL_DATABASE: mascotas
       MYSQL_ROOT_PASSWORD: mascotas
