@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+
+{% block title %}Pet Tracker{% endblock %}
+
+{% block cssad %}          
+<!-- CDN Bootstrap Icons (estrella)-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/reviews.css') }}">
+{% endblock %}
+
+{%block main%}
+
+    <main class="main positionRelative fontEpilogue">
+      <div class="content">
+        <section>
+          <div id="Inicio">
+            <h1 class="Box_Grey" id="Buscar">Buscamos a Tu Mascota Perdida</h1>
+            <button class="Box_Grey" id="Comenzar_Ya" href="#" onclick="mostrarContenido('perdidos')">Comenzar Ya</button>
+          </div>
+          <div id="Pasos">
+            <h2>Busca a tu Mascota en 3 Simples pasos</h2>
+            <img src="/static/img/GatitoGris.png" alt="">
+          </div>
+            <div id="Contenedor_Pasos">
+              <div><p>Paso 1: Inicias una búsqueda en PetTracker</p></div>
+              <div><p>Paso 2: Alertamos a toda nuestra comunidad</p></div>
+              <div><p>Paso 3: Recibes posibles avistamientos </p></div>
+            
+          </div>
+          <div id="Historias">
+            <h2>Historias</h2>
+            <div class="contenedor1">
+              <div class="slider-contenedor">
+                  <section id="Historia_1" class="contenido-slider">
+                      <div>
+                          <h3>Historia 1</h3>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ipsa ipsam aliquam natus quidem
+                              sed. Quos cupiditate id delectus est.</p>
+                          <a href="#">Contact us</a>
+                      </div>
+                      <img src="" alt="">
+      
+                  </section>
+                  <section id="Historia_2"  class="contenido-slider">
+                      <div>
+                          <h3>Historia 2</h3>
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ipsa ipsam aliquam natus quidem
+                              sed. Quos cupiditate id delectus est.</p>
+                          <a href="#">Contact us</a>
+                      </div>
+                      <img src="" alt="">
+      
+                  </section>
+              <section id="Historia_3"  class="contenido-slider">
+                  <div>
+                    <h3>Historia 3</h3>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ipsa ipsam aliquam natus quidem
+                          sed. Quos cupiditate id delectus est.</p>
+                      <a href="#">Contact us</a>
+                  </div>
+                  <img src="" alt="">
+      
+              </section>
+              <section id="Historia_4"  class="contenido-slider">
+                  <div>
+                    <h3>Historia 4</h3>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ipsa ipsam aliquam natus quidem
+                          sed. Quos cupiditate id delectus est.</p>
+                      <a href="#">Contact us</a>
+                  </div>
+                  <img src="" alt="">
+      
+              </section>
+          </div>
+          </div>
+          </div>
+          <div id="Preguntas_Frecuentes">
+            <h2>Preguntas Frecuentes</h2>
+            <div id="Contenedor_Preguntas">
+              <ul class="Lista">
+                <li>
+                  <h3 class="Pregunta">¿Como Funciona PetTracker?
+                    <div class="Signo Mas"></div>
+                  </h3>
+                  <div class="Respuesta">Answer. Donec vitae tellus risus. Aenean sed fermentum risus. Phasellus venenatis 
+                    ultricies dignissim. Nunc ante lectus, accumsan non porta at. Donec vitae tellus risus. Aenean sed 
+                    fermentum risus. Phasellus venenatis ultricies dignissim.</div>
+                </li>
+                <li>
+                  <h3 class="Pregunta">¿Cuales son las Posibilidades de encontrar a Mi mascota perdida?
+                    <div class="Signo Mas"></div>
+                  </h3>
+                  <div class="Respuesta">Answer. Donec vitae tellus risus. Aenean sed fermentum risus. Phasellus venenatis 
+                    ultricies dignissim. Nunc ante lectus, accumsan non porta at. Donec vitae tellus risus. Aenean sed 
+                    fermentum risus. Phasellus venenatis ultricies dignissim.</div>
+                </li>
+                <li>
+                  <h3 class="Pregunta">¿Cuanto dura la Busqueda?
+                    <div class="Signo Mas"></div>
+                  </h3>
+                  <div class="Respuesta">Answer. Donec vitae tellus risus. Aenean sed fermentum risus. Phasellus venenatis 
+                    ultricies dignissim. Nunc ante lectus, accumsan non porta at. Donec vitae tellus risus. Aenean sed 
+                    fermentum risus. Phasellus venenatis ultricies dignissim.</div>
+                </li>
+                <li>
+                  <h3 class="Pregunta">¿Cuanto tiempo se tarda en iniciar la Busqueda</Table>?
+                    <div class="Signo Mas"></div>
+                  </h3>
+                  <div class="Respuesta">Answer. Donec vitae tellus risus. Aenean sed fermentum risus. Phasellus venenatis 
+                    ultricies dignissim. Nunc ante lectus, accumsan non porta at. Donec vitae tellus risus. Aenean sed 
+                    fermentum risus. Phasellus venenatis ultricies dignissim.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="perdidos" style="display: none">
+          <div class="contenedor">
+            <div class="card" style="width: 18rem;">
+                <img class="img1" src="/static/img/gatitomc.jpeg" width="280" height="280">
+                <div class="'card-body">
+                    <p class="card-text">Gracias!</p>
+                    <div class="rating">
+                         <i class="bi bi-star-fill estrella"></i>
+                         <i class="bi bi-star-fill estrella"></i>
+                         <i class="bi bi-star-fill estrella"></i>
+                         <i class="bi bi-star-fill estrella"></i>
+                         <i class="bi bi-star-fill estrella"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card2" style="width: 18rem;">
+                 <img class="img3" src="/static/img/perritomc.jpeg" width="280" height="280">
+                 <div class="'card-body2">
+                    <p class="card-text">Probando uno dos tres!</p>
+                    <div class="rating">
+                        <i class="bi bi-star-fill estrella"></i>
+                        <i class="bi bi-star-fill estrella"></i>
+                        <i class="bi bi-star-fill estrella"></i>
+                        <i class="bi bi-star-fill estrella"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card3" style="width: 18rem;">
+                <img class="img2" src="/static/img/gatito2mc.jpeg" width="280" height="280">
+                <div class="'card-body3">
+                    <p class="card-text">Miau!</p>
+                    <div class="rating">
+                        <i class="bi bi-star-fill estrella"></i>
+                        <i class="bi bi-star-fill estrella"></i>
+                        <i class="bi bi-star-fill estrella"></i>
+                        <i class="bi bi-star-fill estrella"></i>
+                        <i class="bi bi-star-fill estrella"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+      </div>
+    </main>
+
+{% endblock %}
+
