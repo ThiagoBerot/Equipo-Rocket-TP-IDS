@@ -32,9 +32,13 @@
           <form action="/templates/formulario_enviado.html">
             <ul>
               <li>
+                <label for="nombre">Indique el nombre de su mascota:</label>
+                 <input type="text" id="nombre" name="nombre">
+              </li>
+              <li>
                 <label for="animal">Indique si la mascota encontrada es un perro o un gato:</label>
                 <br>
-                <select>
+                <select  aria-label="seleccionar tipo de animal" name="tipo" id="tipo">
                   <option value="none">-</option>
                   <option value="perro">Perro</option>
                   <option value="gato">Gato</option>
@@ -43,7 +47,7 @@
               <li>
                 <label for="edad">Indique si el animal es cachorro o adulto:</label>
                 <br>
-                <select>
+                <select aria-label="seleccionar la edad de la mascota" name="edad" id="edad">
                   <option value="none">-</option>
                   <option value="cachorro">Cachorro</option>
                   <option value="adulto">Adulto</option>
@@ -57,7 +61,7 @@
               <li>
                 <label for="color">Indique el color predominante del animal:</label>
                 <br>
-                <select>
+                <select arial-label="selecionar el color mas resaltado del animal" name="color" id="color">
                   <option value="none">-</option>
                   <option value="negro">Negro</option>
                   <option value="blanco">Blanco</option>
@@ -69,7 +73,7 @@
               <li>
                 <label for="tamaño">Indique el tamaño de la mascota:</label>
                 <br>
-                <select>
+                <label for="tamanio">Indique el tamaño de la mascota:</label>
                   <option value="none">-</option>
                   <option value="negro">Pequeño</option>
                   <option value="blanco">Mediano</option>
@@ -79,7 +83,7 @@
               <li>
                 <label for="sexo">Indique el sexo de la mascota:</label>
                 <br>
-                <select>
+                <select aria-label="selecionar el sexo de la mascota" name="sexo" id="sexo">
                   <option value="none">-</option>
                   <option value="macho">Macho</option>
                   <option value="hembra">Hembra</option>
