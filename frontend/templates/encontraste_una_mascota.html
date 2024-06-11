@@ -29,7 +29,7 @@
         </div>
 
         <div id="formulario">
-          <form action="/templates/formulario_enviado.html">
+          <form action="{{url_for('formulario')}}">
             <ul>
               <li>
                 <label for="animal">Indique si la mascota encontrada es un perro o un gato:</label>
@@ -80,8 +80,9 @@
                 </select>
               </li>
               <li>
-                <label for="zona">Zona donde lo encontró:</label>
-                <input type="text" id="zona" name="zona_mascota" />
+                <label>Zona donde lo encontró:</label><br>
+                <label for="lat">Latitud: </label><input type="text" id="lat" name="latitud" />
+                <label for="lon"> Longitud: </label><input type="text" id="long" name="longitud" />
               </li>
               <li>
                 <label for="mail">Mail de contacto:</label>
@@ -206,6 +207,6 @@
 
   </div>
 
-
+  <script src="{{url_for('static', filename='js/map.js')}}"></script>
   </main>
   {% endblock %}

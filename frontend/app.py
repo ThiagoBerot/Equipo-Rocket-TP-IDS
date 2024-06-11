@@ -18,5 +18,9 @@ def mascotas():
 def encontraste():
     return render_template('encontraste_una_mascota.html')
 
+@app.route('/formulario_enviado')
+def formulario():
+    return render_template("formulario_enviado.html")
+
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

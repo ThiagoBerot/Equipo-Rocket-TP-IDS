@@ -8,9 +8,28 @@ function iniciarMap() {
     zoom: 10,
     center: coord
   });
+
+  //Cada vez que se inicia el mapa tiene que consultar una base de datos para que
+  //le traiga todas las coordenadas y levantarlas en el mapa
+  //dibujarTodosLosMarcadores(map,coord,markers)
+
   //dibujarMarcador(map, coord, markers);
   //addPanToMarker(map, markers);
 }
+/*-----------------------------------------------------------------------------------*/
+const boton_encontraste_mastcota = document.getElementById("boton-formulario")
+boton_encontraste_mastcota.addEventListener("click", function(event){
+  let latitud = $("#lat").val()
+  let longitud = $("#long").val()
+  let coord = { lat: latitud, lng: longitud }
+  let map = new google.maps.Map(document.getElementById("Mapa"), {
+    zoom: 10,
+    center: coord
+  });
+
+  dibujarMarcador(map, coord, markers)
+  
+})
 /*-----------------------------------------------------------------------------------*/
 //Dibuja una marcador
 function dibujarMarcador(map, coord, markers){
@@ -22,41 +41,41 @@ let marker = new google.maps.Marker({
 }
 /*--------------------------------------------------------------------------------------- */
 //Agrega evento a marcador
-function addPanToMarker(map, markers) {
+/*function addPanToMarker(map, markers) {
     markers.map(marker => {
       marker.addListener('click', event => {
           alert("Hola mundo");
       });
     });
-}
+}*/
 /*-------------------------------------------------------------------------------------- */
 /*Funcion que BUSCA el marker correcto segun el filtro,
 le va a preguntar a la base los datos seleccionados para
 que le pida a otra base las coordenadas de la descripcion.*/
 //Busca un marcador
-function seleccionarColor(){
+/*function seleccionarColor(){
   let filtroColor = document.getElementById('filtroColor');
   let color = filtroColor.value;
   document.getElementById('idColor').innerText = `Ud. ha seleccionado el color ${color}`;
-}
+}*/
 
-function seleccionarRaza(){
+/*function seleccionarRaza(){
   let filtroRaza = document.getElementById('filtroRaza');
   let raza = filtroRaza.value;
   document.getElementById('idRaza').innerText = `Ud. ha seleccionado la raza ${raza}`;
-}
+}*/
 
-function seleccionarEdad(){
+/*function seleccionarEdad(){
   let filtroEdad = document.getElementById('filtroEdad');
   let edad = filtroEdad.value;
   document.getElementById('idEdad').innerText = `Ud. ha seleccionado la edad ${edad}`;
-}
+}*/
 
-function seleccionarFecha(){
+/*function seleccionarFecha(){
   let filtroFecha = document.getElementById('filtroFecha');
   let fecha = filtroFecha.value;
   document.getElementById('idFecha').innerText = `Ud. ha seleccionado la raza ${fecha}`;
-}
+}*/
 /*--------------------------------------------------------------------------------- */
 /*Funcion que AGREGA el marker correcto segun el registro,
 va a agregar a la base los datos ingresados para
