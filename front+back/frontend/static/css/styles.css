@@ -1,11 +1,10 @@
-
 /*FONTS*/
 
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* RESET */
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -35,6 +34,12 @@ nav {
     margin-inline: 1rem;
 }
 
+h2 {
+    padding: 2vh;
+    font-size: 4vh;
+    text-align: center;
+}
+
 nav a {
     color: #f2f2f2;
     text-align: center;
@@ -55,24 +60,24 @@ nav a:hover {
 
 /* Estilos para el contenido de la página */
 
-.positionRelative{
+.positionRelative {
     position: relative;
     z-index: 2;
 }
 
-.fontEpilogue{
+.fontEpilogue {
     font-family: "Epilogue", sans-serif;
 }
 
-.contenedor{
+.contenedor {
     max-width: 1500px;
 }
 
-.contenido{
+.contenido {
     padding: 20px;
 }
 
-.main{
+.main {
     margin: 0 0 100vh 0;
     background-color: #FFFFFF;
 }
@@ -80,17 +85,18 @@ nav a:hover {
 /*INICIO*/
 #Inicio {
     height: 100vh;
-    justify-content: center; 
-    align-items: center; 
-    display: flex; 
-    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     background-image: url('../img/Fondo.webp');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center; /* Centra la imagen */
+    background-position: center;
+    /* Centra la imagen */
 }
 
-.Box_Grey{    
+.Box_Grey {
     background-color: rgba(51, 51, 51, 0.8);
     padding: 5vh;
     font-size: 5vh;
@@ -98,10 +104,11 @@ nav a:hover {
     margin: 1vh;
 }
 
-#Buscar{
+#Buscar {
     color: #ddd;
 }
-#Comenzar_Ya{
+
+#Comenzar_Ya {
     color: #ddd;
     border: none;
     transition: 0.5s;
@@ -109,34 +116,40 @@ nav a:hover {
     font-size: 3vh;
     border-radius: 3vh;
 }
-#Comenzar_Ya:hover{
+
+#Comenzar_Ya:hover {
     background-color: #ddd;
     color: black;
     transform: scale(1.1);
 }
+
 #Pasos {
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
 }
-#Pasos h2{
-    padding-top: 2vh;
-    font-size: 4vh;
-    text-align: center;
+
+#Pasos h2 {
+    padding-top: 4vh;
 }
-#Pasos img{
-height: 20%;
-width: 20%;
+
+#Pasos img {
+    height: 20%;
+    width: 20%;
 }
-#Contenedor_Pasos{
-    display: flex; /* Utiliza Flexbox */
-  
-    justify-content: center; /* Centra los elementos verticalmente */
+
+#Contenedor_Pasos {
+    display: flex;
+    /* Utiliza Flexbox */
+
+    justify-content: center;
+    /* Centra los elementos verticalmente */
     width: 100%;
 }
-#Contenedor_Pasos div{
+
+#Contenedor_Pasos div {
     display: inline-block;
     color: #ddd;
     padding-right: 10vh;
@@ -144,39 +157,44 @@ width: 20%;
     padding-top: 3vh;
     padding-bottom: 3vh;
     font-size: 2vh;
-    background-color: #333; 
+    background-color: #333;
     border-top-right-radius: 5vh;
     border-bottom-right-radius: 5vh;
-    margin: 2vh; 
-     
+    margin: 2vh;
+
 }
-#Contenedor_Pasos div p{
+
+#Contenedor_Pasos div p {
     margin: 5px;
     font-size: 2vh;
 }
 
-#Historias h2{
+#Historias h2 {
     padding-top: 2vh;
     font-size: 4vh;
     text-align: center;
 }
-.contenedor1{
+
+.contenedor1 {
     width: 100%;
 }
-#Historias h3{
+
+#Historias h3 {
     padding: 2vh;
     font-size: 3vh;
 }
-#Historias p{
+
+#Historias p {
     padding: 1vh;
     margin-left: 1vh;
 }
-.slider-contenedor{
+
+.slider-contenedor {
     width: 100%;
     display: flex;
 }
 
-.contenido-slider{
+.contenido-slider {
     width: 100%;
     height: 200px;
     display: flex;
@@ -186,38 +204,40 @@ width: 20%;
     border: #000000;
 }
 
-#Historia_1{
+#Historia_1 {
     background: #333;
 }
-#Historia_2{
+
+#Historia_2 {
     background: #a19e9e;
     color: #0a0a0a;
 }
 
-#Historia_3{
-    background:#0a0a0a;
-    color:  #a19e9e;
-}
-#Historia_4{
-    background:#ddd;
-    color:  #000000;
+#Historia_3 {
+    background: #0a0a0a;
+    color: #a19e9e;
 }
 
-.contenido-slider  img{
+#Historia_4 {
+    background: #ddd;
+    color: #000000;
+}
+
+.contenido-slider img {
     width: 200px;
 }
 
-.contenido-slider  div{
+.contenido-slider div {
     width: 100%;
 }
 
-.contenido-slider h2{
+.contenido-slider h2 {
     font-weight: 200;
     text-align: justify;
     line-height: 30px;
 }
 
-.contenido-slider a{
+.contenido-slider a {
     color: #fff;
     background: #463122;
     width: 100px;
@@ -227,45 +247,52 @@ width: 20%;
     text-align: center;
     border-radius: 3px;
     text-decoration: solid;
-    
+
 }
-#Preguntas_Frecuentes{
+
+#Preguntas_Frecuentes {
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
 }
-#Preguntas_Frecuentes h2{
+
+#Preguntas_Frecuentes h2 {
     padding: 2vh;
     font-size: 4vh;
     text-align: center;
 }
+
 #Contenedor_Preguntas {
     padding: 0 20px 0 20px;
     max-width: 800px;
     width: 100%;
-  }
-  
-  .Lista {
+}
+
+.Lista {
     list-style: none;
     padding-left: 40px;
     padding-right: 20px;
-  }
-  .Lista li {
+}
+
+.Lista li {
     border-bottom: 1px solid #999999;
     margin-bottom: 15px;
-  }
-  .Lista li.active .Respuesta {
+}
+
+.Lista li.active .Respuesta {
     max-height: 275px;
     padding-bottom: 25px;
     transition: max-height 0.5s ease, padding-bottom 0.5s ease;
-  }
-  .Lista li.active .Pregunta {
+}
+
+.Lista li.active .Pregunta {
     color: #808080;
     transition: color 0.5s ease;
-  }
-  .Lista .Respuesta {
+}
+
+.Lista .Respuesta {
     color: #090909;
     font-family: serif;
     font-size: 16px;
@@ -273,8 +300,9 @@ width: 20%;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease, padding-bottom 0.5s ease;
-  }
-  .Lista .Signo {
+}
+
+.Lista .Signo {
     cursor: pointer;
     height: 21px;
     position: absolute;
@@ -282,24 +310,30 @@ width: 20%;
     left: -40px;
     top: 50%;
     z-index: 2;
-  }
-  .Lista .Signo:before, .Lista .Signo:after {
+}
+
+.Lista .Signo:before,
+.Lista .Signo:after {
     background: #000;
     height: 5px;
     position: absolute;
     width: 21px;
     transition: transform 500ms ease;
-  }
-  .Lista .Signo:after {
+}
+
+.Lista .Signo:after {
     transform-origin: center;
-  }
-  .Lista .Signo.Mas:after {
+}
+
+.Lista .Signo.Mas:after {
     transform: rotate(90deg);
-  }
-  .Lista .Signo.Mas:before {
+}
+
+.Lista .Signo.Mas:before {
     transform: rotate(180deg);
-  }
-  .Lista .Pregunta {
+}
+
+.Lista .Pregunta {
     color: #090909;
     font-family: sans-serif;
     font-size: 20px;
@@ -309,10 +343,11 @@ width: 20%;
     cursor: pointer;
     padding: 20px 0;
     transition: color 0.5s ease;
-  }
+}
+
 /*PERDIDOS RECIENTEMENTE*/
 
-.grillaPerdidos{
+.grillaPerdidos {
     padding: 1.5rem;
     margin-top: 1rem;
     display: grid;
@@ -320,22 +355,23 @@ width: 20%;
     gap: 2rem;
 }
 
-.grillaTarjeta{
+.grillaTarjeta {
     display: flex;
     gap: 1.1rem;
-    background-color: #333; /*tambien, color a determinar*/
+    background-color: #333;
+    /*tambien, color a determinar*/
     border-radius: 15px;
     color: #FFFFFF;
 }
 
-.grillaImagen{
+.grillaImagen {
     border-radius: 25px;
     width: 18rem;
     max-width: 60%;
     padding: 0.5rem;
 }
 
-.grillaInfo{
+.grillaInfo {
     padding-top: 1rem;
     display: flex;
     flex-direction: column;
@@ -345,7 +381,7 @@ width: 20%;
 
 /*FOOTER*/
 
-.footer{
+.footer {
     position: fixed;
     z-index: 1;
     padding: 2rem;
@@ -358,22 +394,22 @@ width: 20%;
     gap: 0.5rem;
 }
 
-.logoPetTracker{
+.logoPetTracker {
     width: 8rem;
     margin-bottom: 0.5rem;
 }
 
-.footerTitle{
+.footerTitle {
     font-size: 2rem;
     font-weight: 600;
 }
 
-.footerInfo{
+.footerInfo {
     padding: 1rem 8rem;
     font-size: 1.1rem;
 }
 
-.footerContacto{
+.footerContacto {
     padding: 1rem;
     display: flex;
     gap: 1rem;
@@ -381,13 +417,14 @@ width: 20%;
     font-size: 1.8rem;
 }
 
-.footerMail{
+.footerMail {
     color: #000000;
     text-decoration: none;
     transition: 0.3s;
     font-size: 1.1rem;
 }
 
-.footerMail:hover{
-    color: chocolate; /*color de prueba, CAMBIARLO*/
+.footerMail:hover {
+    color: chocolate;
+    /*color de prueba, CAMBIARLO*/
 }
