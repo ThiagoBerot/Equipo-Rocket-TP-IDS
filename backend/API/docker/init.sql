@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS mascotas (
-    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50),
     edad INT,
     raza VARCHAR(50),
@@ -9,10 +9,15 @@ CREATE TABLE IF NOT EXISTS mascotas (
 );
 
 CREATE TABLE IF NOT EXISTS ubicacion(
-    nombre VARCHAR(50),
-    latitud DECIMAL(9,6) NULL,
-    longitud DECIMAL(9,6) NULL
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    latitud VARCHAR(50) NOT NULL,
+    longitud VARCHAR(50) NOT NULL
 );
+
+INSERT INTO ubicacion 
+    (latitud,longitud) 
+    VALUES 
+    ("-34.565758","-54.344556"); 
 
 
 INSERT INTO mascotas 

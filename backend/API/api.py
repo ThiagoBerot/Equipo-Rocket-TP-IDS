@@ -14,8 +14,6 @@ connection = mysql.connector.connect(
     port='3307'
 )
 cursor = connection.cursor()
-
-
 #--------------------------------------------------------------------------------------------
 @app.route('/mascotas', methods=['GET'])
 def obtener_mascotas():
@@ -25,23 +23,39 @@ def obtener_mascotas():
         resultado = cursor.fetchall()
     except SQLAlchemyError as err:
        return print(str(err.__cause__))
-
     if resultado != 0:
         data = []
         for row in resultado:
             diccionario = {
-            'ID':row[0],
+            'id':row[0],
             'nombre':row[1],
             'edad':row[2],
             'raza':row[3],
             'color':row[4],
             'fecha_desaparicion':row[5],
             'fecha_encontrado':row[6]
-        }
+            }
             data.append(diccionario)
     return jsonify(data), 200
-
-#obtener_mascotas()
+#--------------------------------------------------------------------------------------------
+@app.route('/coordenadas', methods=['GET'])
+def obtener_coordenadas():
+    query = "Select * FROM ubicacion;"
+    try: 
+        cursor.execute(query)
+        resultado = cursor.fetchall()
+    except SQLAlchemyError as err:
+       return print(str(err.__cause__))
+    if resultado != 0:
+        data = []
+        for row in resultado:
+            diccionario = {
+            'id':row[0],
+            'latitud':row[1],
+            'longitud':row[2]
+            }
+            data.append(diccionario)
+    return jsonify(data), 200
 #--------------------------------------------------------------------------------------------
 if __name__ == '__main__':
    app.run("127.0.0.1",debug=True, port=5001)
