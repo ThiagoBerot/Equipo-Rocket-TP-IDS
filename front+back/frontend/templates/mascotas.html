@@ -4,10 +4,11 @@
 
 {% block main %}
 
-<main class="main positionRelative fontEpilogue">
-    <section class="contenido" id="perdidos">
-      <h2>Perdidos Recientemente</h2>
-      <p>Una lista de mascotas perdidas recientemente.</p>
+    <section data-aos="fade-up" data-aos-duration="1000" class="contenido" id="perdidos">
+      <div class="perdidos">      
+        <h2 class="perdidosTitle">Perdidos Recientemente</h2>
+        <p >Una lista de mascotas perdidas recientemente.</p>
+      </div>
       <div class="grillaPerdidos">
         {% for i in range(1, 10) %}
           <div class="grillaTarjeta">
@@ -23,6 +24,5 @@
         {% endfor %}
       </div>
       </section>
-</main>
 
 {% endblock %}
