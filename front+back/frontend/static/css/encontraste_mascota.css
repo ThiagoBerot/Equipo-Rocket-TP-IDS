@@ -1,10 +1,7 @@
 /* FUENTE IMPORTADA DE GOOGLE FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap');
 
-html{
-    height: 100%;
-}
+/* SECCIÓN FORMULARIO */
 
 body{
     font-family: "Epilogue", sans-serif;
@@ -88,7 +85,12 @@ h1{
     height: 30px;
     font-size: 20px;
     color:#6c5e5e;
-    font-weight: bold;
+    font-weight:normal;
+}
+
+#formulario textarea{
+  padding: 5px;
+  font-family: "Epilogue", sans-serif;  
 }
 
 #formulario li{
@@ -123,6 +125,8 @@ h1{
     transform: scale(1.05);
 }
 
+
+/* SECCIÓN HOGARES DE TRÁNSITO */
 .centros_animales{
     text-align: center;
     margin-top: 30px;
@@ -132,7 +136,6 @@ h1{
 
 .centros_animales a{
     font-size: 20px;
-
 }
 
 .centros_animales h2{
@@ -178,10 +181,12 @@ h1{
 
 .info_centro_animales1 h2, .info_centro_animales1 h3, .info_centro_animales1 p{
     margin-right: 30px;
+    text-align: start;
 }
 
 .info_centro_animales2 h2, .info_centro_animales2 h3, .info_centro_animales2 p{
     margin-left: 30px;
+    text-align: start;
 }
 
 .info_centro_animales1 h2, .info_centro_animales2 h2{
@@ -194,7 +199,7 @@ h1{
     font-style: italic;
 }
 
-/*SLIDER*/
+/* SLIDER */
 .slider-frame {
     height: auto;
 	overflow: hidden;

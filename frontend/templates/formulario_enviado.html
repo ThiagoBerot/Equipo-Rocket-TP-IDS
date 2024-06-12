@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
+{% block cssad %} 
+    <link rel="stylesheet" href="{{url_for('static', filename="css/formulario_enviado.css")}}">
+{% endblock %}
 
-{% block title %}Su formulario ha sido enviado correctamente ¡Gracias por colaborar!{% endblock %}
-
-{% block cssad %}{% endblock %}
-{% block main %}{% endblock %}
+{% block title %}Formulario enviado{% endblock %}
+{% block main %}
+    <h1>Su formulario ha sido enviado exitosamente ¡Gracias por colaborar!</h1>
+    <div class="imagenes">
+        <img id="chica" src="{{url_for('static', filename="img/form_enviado-img1.png")}}" alt="">
+        <img id="chico" src="{{url_for('static', filename="img/form_enviado-img2.png")}}" alt="">
+    </div>
+{% endblock %}
 
