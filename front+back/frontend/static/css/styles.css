@@ -34,6 +34,11 @@ nav {
     margin-inline: 1rem;
 }
 
+.navegadorMenu{
+    display: inline-flex;
+    gap: 1rem;
+}
+
 h2 {
     padding: 2vh;
     font-size: 4vh;
@@ -58,6 +63,64 @@ nav a:hover {
     transform: scale(1.05);
 }
 
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #FFFFFF;
+}
+
+@media (max-width:768px) {
+    nav {
+        justify-content: space-between;
+    }
+
+    .hamburger {
+        display: block;
+        margin-right: 2rem;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .navegadorMenu {
+        position: fixed;
+        left: -100%;
+        top: 65px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #333;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    nav a {
+        margin: 16px 0;
+    }
+
+    .navegadorMenu.active{
+        left: 0;
+    }
+}
+
 /* Estilos para el contenido de la página */
 
 .positionRelative {
@@ -74,12 +137,13 @@ nav a:hover {
 }
 
 .contenido {
-    padding: 20px;
+    padding: 30px;
 }
 
 .main {
     margin: 0 0 100vh 0;
     background-color: #FFFFFF;
+    border-radius: 0 0 20px 20px;
 }
 
 /*INICIO*/
@@ -143,7 +207,6 @@ nav a:hover {
 #Contenedor_Pasos {
     display: flex;
     /* Utiliza Flexbox */
-
     justify-content: center;
     /* Centra los elementos verticalmente */
     width: 100%;
@@ -345,7 +408,31 @@ nav a:hover {
     transition: color 0.5s ease;
 }
 
+@media(max-width: 1200px){
+    /*#Inicio {
+        background-image: none;
+    }*/
+    #Historias {
+        display: none;
+    }
+    #Contenedor_Pasos {
+        flex-direction: column;
+    }
+}
+
 /*PERDIDOS RECIENTEMENTE*/
+
+.perdidos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.perdidosTitle {
+    font-weight: 500;
+}
 
 .grillaPerdidos {
     padding: 1.5rem;
@@ -361,14 +448,14 @@ nav a:hover {
     background-color: #333;
     /*tambien, color a determinar*/
     border-radius: 15px;
-    color: #FFFFFF;
+    box-shadow: 2px 2px 18px;
 }
 
 .grillaImagen {
-    border-radius: 25px;
+    border-radius: 50px;
     width: 18rem;
     max-width: 60%;
-    padding: 0.5rem;
+    padding: 1rem;
 }
 
 .grillaInfo {
@@ -377,6 +464,35 @@ nav a:hover {
     flex-direction: column;
     gap: 0.5rem;
     justify-content: center;
+    color: #FFFFFF;
+}
+
+@media (max-width: 1200px){
+    .grillaPerdidos {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .grillaTarjeta {
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 600px){
+    .grillaPerdidos {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        padding: 0.5rem 0;
+    }
+
+    .grillaImagen {
+        width: 12rem;
+        padding: 0.5rem;
+    }
+
+    .grillaInfo {
+        font-size: 0.9rem;
+    }
+    
 }
 
 /*FOOTER*/
@@ -384,7 +500,7 @@ nav a:hover {
 .footer {
     position: fixed;
     z-index: 1;
-    padding: 2rem;
+    padding: 0 2rem;
     height: 100vh;
     bottom: 0;
     display: flex;
@@ -392,6 +508,7 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+    background-color: #f3f4f5;
 }
 
 .logoPetTracker {
@@ -407,14 +524,16 @@ nav a:hover {
 .footerInfo {
     padding: 1rem 8rem;
     font-size: 1.1rem;
+    text-align: center;
 }
 
 .footerContacto {
-    padding: 1rem;
     display: flex;
-    gap: 1rem;
-    align-items: end;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+}
+
+.footerMailTel {
+    text-align: center;
 }
 
 .footerMail {
@@ -427,4 +546,14 @@ nav a:hover {
 .footerMail:hover {
     color: chocolate;
     /*color de prueba, CAMBIARLO*/
+}
+
+
+@media (max-width: 500px){
+    .footerInfo {
+        padding: 1rem;
+    }
+    .footerContacto {
+        font-size: 1rem;
+    }
 }
