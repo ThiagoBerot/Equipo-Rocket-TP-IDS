@@ -28,7 +28,7 @@ const boton_encontraste_mastcota = document.getElementById("boton-formulario")
 boton_encontraste_mastcota.addEventListener("click", function(event){
   let latitud = $("#latitud").val()
   let longitud = $("#longitud").val()
-  alert(longitud);
+
   // function enviarDatos(latitud,longitud);
 })
 
