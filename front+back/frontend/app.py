@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, redirect, request
-
+import api
 app = Flask(__name__)
 
 @app.route('/')
@@ -17,6 +17,8 @@ def mascotas():
 @app.route('/encontraste')
 def encontraste():
     return render_template('encontraste_una_mascota.html')
-
+def registro():
+    api.registrarForm()
+    return render_template('formulario_enviado.html')
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
