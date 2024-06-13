@@ -40,7 +40,7 @@ def obtener_mascotas():
 #--------------------------------------------------------------------------------------------
 @app.route('/coordenadas', methods=['GET'])
 def obtener_coordenadas():
-    query = "Select * FROM ubicacion;"
+    query = "Select * FROM coordenadas;"
     try: 
         cursor.execute(query)
         resultado = cursor.fetchall()
@@ -51,11 +51,16 @@ def obtener_coordenadas():
         for row in resultado:
             diccionario = {
             'id':row[0],
-            'latitud':row[1],
-            'longitud':row[2]
+            'direccion':row[1],
+            'nombre':row[2],
+            'latitud':row[3],
+            'longitud':row[4]
             }
+            print(diccionario)
             data.append(diccionario)
     return jsonify(data), 200
+
+
 #--------------------------------------------------------------------------------------------
 if __name__ == '__main__':
    app.run("127.0.0.1",debug=True, port=5001)
