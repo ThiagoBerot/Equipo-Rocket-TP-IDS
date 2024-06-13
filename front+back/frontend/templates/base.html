@@ -23,15 +23,18 @@
   <body>
     <header>    
         <nav class="navbar fontEpilogue">
-            <img
-          src="../static/img/logo borderless.png"
-          class="img-logo"
-          alt="Logo"
-            />
-            <a href="{{ url_for('index') }}" onclick="mostrarContenido('inicio')">Inicio</a>
-            <a href="{{ url_for('mapa') }}">Mapa</a>
-            <a href="{{ url_for('mascotas') }}">Perdidos Recientemente</a>
-            <a href="{{ url_for('encontraste') }}">¿Encontraste una Mascota?</a>
+            <img src="../static/img/logo borderless.png" class="img-logo" alt="Logo">
+            <div class="navegadorMenu">
+              <a class="navLink" href="{{ url_for('index') }}" onclick="mostrarContenido('inicio')">Inicio</a>
+              <a class="navLink" href="{{ url_for('mapa') }}">Mapa</a>
+              <a class="navLink" href="{{ url_for('mascotas') }}">Perdidos Recientemente</a>
+              <a class="navLink" href="{{ url_for('encontraste') }}">¿Encontraste una Mascota?</a>
+            </div>
+            <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
         </nav>
     </header>
     <main class="main positionRelative fontEpilogue">
@@ -70,9 +73,10 @@
       </p>
 
     </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     
     <!-- Enlace al archivo JavaScript -->
     <script>

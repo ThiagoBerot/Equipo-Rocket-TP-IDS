@@ -34,6 +34,11 @@ nav {
     margin-inline: 1rem;
 }
 
+.navegadorMenu{
+    display: inline-flex;
+    gap: 1rem;
+}
+
 h2 {
     padding: 2vh;
     font-size: 4vh;
@@ -56,6 +61,64 @@ nav a:hover {
     border-radius: 5px;
     color: black;
     transform: scale(1.05);
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #FFFFFF;
+}
+
+@media (max-width:768px) {
+    nav {
+        justify-content: space-between;
+    }
+
+    .hamburger {
+        display: block;
+        margin-right: 2rem;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .navegadorMenu {
+        position: fixed;
+        left: -100%;
+        top: 65px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #333;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    nav a {
+        margin: 16px 0;
+    }
+
+    .navegadorMenu.active{
+        left: 0;
+    }
 }
 
 /* Estilos para el contenido de la página */
@@ -343,6 +406,18 @@ nav a:hover {
     cursor: pointer;
     padding: 20px 0;
     transition: color 0.5s ease;
+}
+
+@media(max-width: 1200px){
+    /*#Inicio {
+        background-image: none;
+    }*/
+    #Historias {
+        display: none;
+    }
+    #Contenedor_Pasos {
+        flex-direction: column;
+    }
 }
 
 /*PERDIDOS RECIENTEMENTE*/
