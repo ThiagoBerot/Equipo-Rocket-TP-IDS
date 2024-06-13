@@ -2,12 +2,13 @@
 
 {% block title %}¿Encontraste una mascota?{% endblock %}
 
-{% block cssad %}<link rel="stylesheet" href="../static/css/encontraste_mascota.css"/>{% endblock %}
+{% block cssad %}<link rel="stylesheet" href="{{url_for('static', filename="css/encontraste_mascota.css")}}"/>{% endblock %}
 
 {% block main %}
-<main class="main positionRelative">
-    <div class="encontraste_mascota_content">
+  <!-- SECCIÓN FORMULARIO -->
 
+   <section class="contenido">
+    <div class="encontraste_mascota_content">
       <div class="titulo_desc">
         <h1>¿Encontraste una mascota?</h1>
         <p>
@@ -23,22 +24,23 @@
       <div class="contenedor_img_form">
 
         <div class="imagenes_form">
-          <img src="../static/img/chica_y_perro.png" alt="chica y perro" width="300" height="300"/>
-          <img src="/static/img/chico_y_perrosilla.png" alt="chico y perro en una silla" width="380", height="400">
+          <img id="chica_y_perro" src="{{url_for('static', filename= "img/chica_y_perro.png")}}" alt="chica y perro" width="300" height="300"/>
+          <img id="chico_y_perrosilla" src="{{url_for('static', filename="img/chico_y_perrosilla.png")}}" alt="chico y perro en una silla" width="300", height="320">
 
         </div>
 
         <div id="formulario">
-          <form action="/templates/formulario_enviado.html">
+          <form action="/form" method="post">
             <ul>
               <li>
-                <label for="nombre">Indique el nombre de su mascota:</label>
-                 <input type="text" id="nombre" name="nombre">
+                <label for="nombre">Indique el nombre de la mascota:</label>
+                <br>
+                <input type="text" id="nombre" name="nombre_animalf" placeholder="Ej: Manchita">
               </li>
               <li>
                 <label for="animal">Indique si la mascota encontrada es un perro o un gato:</label>
                 <br>
-                <select  aria-label="seleccionar tipo de animal" name="tipo" id="tipo">
+                <select aria-label= "se elige el tipo de animal" id="tipo" name="tipo">
                   <option value="none">-</option>
                   <option value="perro">Perro</option>
                   <option value="gato">Gato</option>
@@ -47,7 +49,7 @@
               <li>
                 <label for="edad">Indique si el animal es cachorro o adulto:</label>
                 <br>
-                <select aria-label="seleccionar la edad de la mascota" name="edad" id="edad">
+                <select aria-label="se elige la edad el animal" id="edad" name="edad">
                   <option value="none">-</option>
                   <option value="cachorro">Cachorro</option>
                   <option value="adulto">Adulto</option>
@@ -56,12 +58,12 @@
               <li>
                 <label for="raza">Raza de la mascota:</label>
                 <br>
-                <input type="text" id="raza" name="raza_animal"/>
+                <input type="text" id="raza" name="raza" placeholder="Ej: Pastor Alemán"/>
               </li>
               <li>
                 <label for="color">Indique el color predominante del animal:</label>
                 <br>
-                <select arial-label="selecionar el color mas resaltado del animal" name="color" id="color">
+                <select aria-label="se elige el color mas resaltante del animal" id="color" name="color">
                   <option value="none">-</option>
                   <option value="negro">Negro</option>
                   <option value="blanco">Blanco</option>
@@ -73,7 +75,7 @@
               <li>
                 <label for="tamaño">Indique el tamaño de la mascota:</label>
                 <br>
-                <label for="tamanio">Indique el tamaño de la mascota:</label>
+                <select aria-label="se elige el tamaño de la mascota" id="tamanio"name="tamanio">
                   <option value="none">-</option>
                   <option value="negro">Pequeño</option>
                   <option value="blanco">Mediano</option>
@@ -83,7 +85,7 @@
               <li>
                 <label for="sexo">Indique el sexo de la mascota:</label>
                 <br>
-                <select aria-label="selecionar el sexo de la mascota" name="sexo" id="sexo">
+                <select aria-label="se elige el sexo de la mascota" id="sexo" name="sexo">
                   <option value="none">-</option>
                   <option value="macho">Macho</option>
                   <option value="hembra">Hembra</option>
@@ -92,22 +94,23 @@
               <li>
                 <label for="zona">Zona donde lo encontró:</label>
                 <br>
-                <input type="text" id="zona" name="zona_mascota" />
-              </li>
-              <li>
-                <label for="mail">Mail de contacto:</label>
-                <br>
-                <input type="mail" id="mail" name="user_mail" />
+                <input type="text" id="latitud" name="latitud" placeholder="Latitud"/>
+                <input type="text" id="longitud" name="longitud" placeholder="Longitud"/>
               </li>
               <li>
                 <label for="descripcion">Descripción de la mascota:</label>
                 <br>
-                <textarea id="descripcion" name="descripcion"></textarea>
+                <textarea id="descripcion" name="descripcion" placeholder="Ej: Orejas grandes, ojos oscuros, collar rojo."></textarea>
               </li>
               <li>
                 <label for="fecha">¿Cuándo lo encontraste?</label>
                 <br>
-                <input type="date" id="fecha" name="fecha_mascota"/>
+                <input type="date" id="fecha_encontrado" name="fecha_encontrado"/>
+              </li>
+              <li>
+                <label for="mail">Mail de contacto:</label>
+                <br>
+                <input type="mail" id="mail" name="mail" placeholder="Ej: patricia@gmail.com" />
               </li>
             </ul>
             <button type="submit" id="boton-formulario">Enviar datos</button>
@@ -115,8 +118,8 @@
         </div>
 
         <div class="imagenes_form">
-          <img id="chica_y_gato" src="/static/img/chica_y_gato.png" alt="chica y gato" width="200", height="300">
-          <img id="chico_y_perro" src="../static/img/chico_y_perro.png" alt="chico y perro" width="240" height="300"/>
+          <img id="chica_y_gato" src="{{url_for('static', filename="img/chica_y_gato.png")}}" alt="chica y gato" width="200", height="300">
+          <img id="chico_y_perro" src="{{url_for('static', filename="img/chico_y_perro.png")}}" alt="chico y perro" width="240" height="300"/>
         </div>
   
         <br/>
@@ -124,6 +127,7 @@
 
     </div>  
 
+    <!-- SECCIÓN HOGARES DE TRÁNSITO -->
     <div class="centros_animales">
       <h2>🐾 Hogares de tránsito 🐾</h2>
       <p>En nuestros hogares de tránsito para mascotas, ofrecemos una segunda oportunidad a animales
@@ -135,7 +139,7 @@
          nuevo hogar. Al adoptar, no solo encontrás un nuevo amigo, sino que también estas ayudando a reducir 
          la cantidad de animales sin hogar en nuestra comunidad. ¡Vení y hacé la diferencia hoy mismo!</p>
           <br>
-         <a href="./#">-->  ¡Miralos en el mapa!  <--</a>
+         <a href="{{url_for('mapa')}}">-->  ¡Miralos en el mapa!  <--</a>
     </div>
 
     <div class="info_centro_animales1">
@@ -154,7 +158,14 @@
       </div>
 
       <div class="imagenes">
-        <img src="../static/img/perro_centro1.png", height="300" width="500">
+        <div class="slider-frame">
+          <ul>
+              <li><img src="{{url_for('static', filename="img/slider1-img1.png")}}" height="300" width="500" alt=""></li>
+              <li><img src="{{url_for('static', filename="img/slider1-img2.jpg")}}" height="300" width="500" alt=""></li>
+              <li><img src="{{url_for('static', filename="img/slider1-img3.jpg")}}" height="300" width="500" alt=""></li>
+              <li><img src="{{url_for('static', filename="img/slider1-img4.jpg")}}" height="300" width="500" alt=""></li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -162,7 +173,14 @@
     <div class="info_centro_animales2">  
         <!--En info_centro_animales2, el texto está a la derecha de la imagen--> 
       <div class="imagenes">
-        <img src="../static/img/perro_centro2.jpg", height="300" width="500">
+        <div class="slider-frame">
+          <ul>
+              <li><img src="{{url_for('static', filename="img/slider2-img1.jpg")}}" height="300" width="500" alt=""></li>
+              <li><img src="{{url_for('static', filename="img/slider2-img2.jpg")}}" height="300" width="500" alt=""></li>
+              <li><img src="{{url_for('static', filename="img/slider2-img3.jpg")}}" height="300" width="500" alt=""></li>
+              <li><img src="{{url_for('static', filename="img/slider2-img4.jpg")}}" height="300" width="500" alt=""></li>
+          </ul>
+        </div>
       </div>
 
       <div class="texto">
@@ -195,31 +213,44 @@
       </div>
 
       <div class="imagenes">
-        <img src="../static/img/perro_centro3.jpg", height="300" width="500">
+        <div class="slider-frame">
+          <ul>
+              <li><img src="{{url_for('static', filename="img/slider3-img1.jpg")}}" height="300" width="500" alt=""></li>
+              <li><img src="{{url_for('static', filename="img/slider3-img2.jpg")}}" height="300" width="500" alt=""></li>
+              <li><img src="{{url_for('static', filename="img/slider3-img3.jpeg")}}" height="300" width="500" alt=""></li>
+              <li><img src="{{url_for('static', filename="img/slider3-img4.jpg")}}" height="300" width="500" alt=""></li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <div class="info_centro_animales2">  
       <!--En info_centro_animales2, el texto está a la derecha de la imagen--> 
-    <div class="imagenes">
-      <img src="../static/img/perro-centro4.jpeg", height="300" width="500">
-    </div>
+      <div class="imagenes">
+        <div class="slider-frame">
+          <ul>
+            <li><img src="{{url_for('static', filename="img/slider4-img1.jpg")}}" height="300" width="500" alt=""></li>
+            <li><img src="{{url_for('static', filename="img/slider4-img2.jpg")}}" height="300" width="500" alt=""></li>
+            <li><img src="{{url_for('static', filename="img/slider4-img3.jpg")}}" height="300" width="500" alt=""></li>
+            <li><img src="{{url_for('static', filename="img/slider4-img4.jpg")}}" height="300" width="500" alt=""></li>
+          </ul>
+        </div>
+      </div>
 
-    <div class="texto">
-      <h2>Refugio Amor Animal</h2>
-      <h3>Av. Jorge Newbery 1761, C1426 Cdad. Autónoma de Buenos Aires</h3>
-      <br>
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      <div class="texto">
+        <h2>Refugio Amor Animal</h2>
+        <h3>Av. Jorge Newbery 1761, C1426 Cdad. Autónoma de Buenos Aires</h3>
+        <br>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
         aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
         in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
         deserunt mollit anim id est laborum."</p>
+      </div>
+
     </div>
+  </section>
 
-  </div>
-
-
-  </main>
   {% endblock %}
