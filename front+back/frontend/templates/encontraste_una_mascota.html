@@ -30,7 +30,7 @@
         </div>
 
         <div id="formulario">
-          <form action="{{url_for('enviado')}}" method="post">
+          <form action="/form" method="post">
             <ul>
               <li>
                 <label for="nombre">Indique el nombre de la mascota:</label>
@@ -40,7 +40,7 @@
               <li>
                 <label for="animal">Indique si la mascota encontrada es un perro o un gato:</label>
                 <br>
-                <select name="animalf">
+                <select aria-label= "se elige el tipo de animal" id="tipo" name="tipo">
                   <option value="none">-</option>
                   <option value="perro">Perro</option>
                   <option value="gato">Gato</option>
@@ -49,7 +49,7 @@
               <li>
                 <label for="edad">Indique si el animal es cachorro o adulto:</label>
                 <br>
-                <select name="edadf">
+                <select aria-label="se elige la edad el animal" id="edad" name="edad">
                   <option value="none">-</option>
                   <option value="cachorro">Cachorro</option>
                   <option value="adulto">Adulto</option>
@@ -58,12 +58,12 @@
               <li>
                 <label for="raza">Raza de la mascota:</label>
                 <br>
-                <input type="text" id="raza" name="raza_animalf" placeholder="Ej: Pastor Alemán"/>
+                <input type="text" id="raza" name="raza" placeholder="Ej: Pastor Alemán"/>
               </li>
               <li>
                 <label for="color">Indique el color predominante del animal:</label>
                 <br>
-                <select name="colorf">
+                <select aria-label="se elige el color mas resaltante del animal" id="color" name="color">
                   <option value="none">-</option>
                   <option value="negro">Negro</option>
                   <option value="blanco">Blanco</option>
@@ -75,7 +75,7 @@
               <li>
                 <label for="tamaño">Indique el tamaño de la mascota:</label>
                 <br>
-                <select name="tamañof">
+                <select aria-label="se elige el tamaño de la mascota" id="tamanio"name="tamanio">
                   <option value="none">-</option>
                   <option value="negro">Pequeño</option>
                   <option value="blanco">Mediano</option>
@@ -85,7 +85,7 @@
               <li>
                 <label for="sexo">Indique el sexo de la mascota:</label>
                 <br>
-                <select name="sexof">
+                <select aria-label="se elige el sexo de la mascota" id="sexo" name="sexo">
                   <option value="none">-</option>
                   <option value="macho">Macho</option>
                   <option value="hembra">Hembra</option>
@@ -100,17 +100,17 @@
               <li>
                 <label for="descripcion">Descripción de la mascota:</label>
                 <br>
-                <textarea id="descripcion" name="descripcionf" placeholder="Ej: Orejas grandes, ojos oscuros, collar rojo."></textarea>
+                <textarea id="descripcion" name="descripcion" placeholder="Ej: Orejas grandes, ojos oscuros, collar rojo."></textarea>
               </li>
               <li>
                 <label for="fecha">¿Cuándo lo encontraste?</label>
                 <br>
-                <input type="date" id="fecha" name="fecha_mascotaf"/>
+                <input type="date" id="fecha_encontrado" name="fecha_encontrado"/>
               </li>
               <li>
                 <label for="mail">Mail de contacto:</label>
                 <br>
-                <input type="mail" id="mail" name="user_mailf" placeholder="Ej: patricia@gmail.com" />
+                <input type="mail" id="mail" name="mail" placeholder="Ej: patricia@gmail.com" />
               </li>
             </ul>
             <button type="submit" id="boton-formulario">Enviar datos</button>
