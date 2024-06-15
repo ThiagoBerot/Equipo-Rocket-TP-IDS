@@ -37,6 +37,8 @@ def obtener_mascotas():
             }
             data.append(diccionario)
     return jsonify(data), 200
+
+
 #--------------------------------------------------------------------------------------------
 @app.route('/coordenadas', methods=['GET'])
 def obtener_coordenadas():
