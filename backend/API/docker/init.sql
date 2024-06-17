@@ -4,8 +4,8 @@ CREATE TABLE IF NOT EXISTS mascotas(
     edad VARCHAR(100),
     raza VARCHAR(100),
     color VARCHAR(100),
-    fecha_desaparicion  DATETIME,
-    fecha_encontrado DATETIME,
+    fecha_desaparicion DATATIME,
+    fecha_encontrado DATATIME,
     PRIMARY KEY (id)
 );
 

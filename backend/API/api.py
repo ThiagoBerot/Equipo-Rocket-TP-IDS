@@ -39,6 +39,24 @@ def obtener_mascotas():
     return jsonify(data), 200
 
 
+@app.route('/agregar_mascota', methods=["POST"])
+def agregar_mascotas():
+    nueva_mascota = request.get_json()
+    query = f"""INSERT INTO mascotas (nombre,edad,raza,color,fecha_desaparicion,fecha_encontrado) 
+            VALUES '{nueva_mascota["nombre"]}','{nueva_mascota["edad"]}','{nueva_mascota["raza"]}',
+            '{nueva_mascota["color"]}','{nueva_mascota["fecha_desaparicion"]}','{nueva_mascota["fecha_encontrado"]}';"""
+    try:
+        cursor.execute(query)
+        resultado = cursor.fetchall()
+        resultado.commit()
+
+    except SQLAlchemyError as err:
+       return jsonify({'message': 'Se ha produjido un error ' + str(err.__cause__)})
+    #except:
+        #return jsonify({'message': 'Se ha produjido un error'})
+    return jsonify({'message':'Se ha agregado correctamente ' + query}), 200
+
+
 #--------------------------------------------------------------------------------------------
 @app.route('/coordenadas', methods=['GET'])
 def obtener_coordenadas():
@@ -58,7 +76,6 @@ def obtener_coordenadas():
             'latitud':row[3],
             'longitud':row[4]
             }
-            print(diccionario)
             data.append(diccionario)
     return jsonify(data), 200
 
