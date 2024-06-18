@@ -29,11 +29,16 @@ def obtener_mascotas():
             diccionario = {
             'id':row[0],
             'nombre':row[1],
-            'edad':row[2],
-            'raza':row[3],
-            'color':row[4],
-            'fecha_desaparicion':row[5],
-            'fecha_encontrado':row[6]
+            'tipo':row[2],
+            'sexo':row[3],          
+            'edad':row[4],
+            'raza':row[5],
+            'color':row[6],
+            'tamanio':row[7],
+            'mail':row[8],
+            'descripcion':row[9],
+            'fecha_desaparicion':row[10],
+            'fecha_encontrado':row[11]
             }
             data.append(diccionario)
     return jsonify(data), 200
@@ -55,11 +60,16 @@ def obtener_mascota(id):
             diccionario = {
             'id':row[0],
             'nombre':row[1],
-            'edad':row[2],
-            'raza':row[3],
-            'color':row[4],
-            'fecha_desaparicion':row[5],
-            'fecha_encontrado':row[6]
+            'tipo':row[2],
+            'sexo':row[3],          
+            'edad':row[4],
+            'raza':row[5],
+            'color':row[6],
+            'tamanio':row[7],
+            'mail':row[8],
+            'descripcion':row[9],
+            'fecha_desaparicion':row[10],
+            'fecha_encontrado':row[11]
             }
             data.append(diccionario)
         return jsonify(data), 200
@@ -69,9 +79,9 @@ def obtener_mascota(id):
 @app.route('/mascotas', methods=['POST'])
 def agregar_mascotas():
     nueva_mascota = request.get_json()
-    query = f"""INSERT INTO mascotas(nombre,edad,raza,color,fecha_desaparicion,fecha_encontrado)
-            VALUES ('{nueva_mascota["nombre"]}','{nueva_mascota["edad"]}','{nueva_mascota["raza"]}',
-            '{nueva_mascota["color"]}','{nueva_mascota["fecha_desaparicion"]}','{nueva_mascota["fecha_encontrado"]}');"""
+    query = f"""INSERT INTO mascotas(nombre,tipo,sexo,edad,raza,color,tamanio,mail,descripcion,fecha_desaparicion,fecha_encontrado)
+            VALUES ('{nueva_mascota["nombre"]}','{nueva_mascota["tipo"]}','{nueva_mascota["sexo"]}','{nueva_mascota["edad"]}','{nueva_mascota["raza"]}',
+            '{nueva_mascota["color"]}','{nueva_mascota["tamanio"]}','{nueva_mascota["mail"]}','{nueva_mascota["descripcion"]}','{nueva_mascota["fecha_desaparicion"]}','{nueva_mascota["fecha_encontrado"]}');"""
     try:
         cursor.execute(query)
         connection.commit()
