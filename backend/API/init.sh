@@ -1,8 +1,12 @@
 #Dependencias
 
-#Dependencias necesarias para conectar a mysql desde flask con xampp.
+#Dependencias necesarias para conectar a mysql.
 pip3 install flask_sqlalchemy
 pip3 install mysql-connector-python
+
+#Dependecias para interactuar javascript con la api 
+sudo apt install npm
+npm install node-fetch
 
 #Levantar contenedor y levantarse a la base de datos 
 cd docker

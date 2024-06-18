@@ -1,17 +1,9 @@
+import fetch from 'node-fetch';
 
-/* 1 Falta hacer funcion que envia datos a bd cuando envia el formulario, 
- * 2 la que recibe los datos cuando inicia el mapa para levantarlos en el mapa,
- * 3 y la que filtra los datos y hae zoom a un marccador en especifico.
- */
+fetch("http://127.0.0.1:5001/mascotas")
+  .then(response => response.json())
+  .then(mascotas => console.log(mascotas))
 
-const base_datos_coordenadas = [{ lat: -34.5956145, lng: -58.4431949 }, { lat: -34.60342, lng: -58.38525 }];
-
-const base_datos_formulario = 
-  [{'id':1,'animal':'perro','edad':'adulto','raza':'labrador','color':'negro',
-    'tamanio':'grande','sexo':'macho','mail':'rsmartin@fi.uba.ar','descripcion':'inquieto',
-    'fecha_encuentro':'13/07/2024'}, {'id':2,'animal':'gato','edad':'cachorro','raza':'siames','color':'blanco',
-    'tamanio':'chico','sexo':'hembra','mail':'rsmartin@fi.uba.ar','descripcion':'inquieto',
-    'fecha_encuentro':'12/07/2024'}];
 /*-----------------------------------------------------------------------------------*/
 function iniciarMap() {
   let coord = { lat: -34.5956145, lng: -58.4431949 };
@@ -19,22 +11,13 @@ function iniciarMap() {
     zoom: 13,
     center: coord
   });
-  //Cada vez que se inicia el mapa tiene que consultar una base de datos para que
-  //le traiga todas las coordenadas y levantarlas en el mapa
-  
+
   //let mascotas = [] -> funcionRecibirMascotas();
   //let coordenadas = [] ->function recibirCoordenadas();
   dibujaUnCirculo(map,coord);
   dibujarTodosLosMarcadores(map);
 }
 /*---------------------------------------------------------------------------------------*/
-const boton_encontraste_mastcota = document.getElementById("boton-formulario")
-boton_encontraste_mastcota.addEventListener("click", function(event){
-  let latitud = $("#latitud").val()
-  let longitud = $("#longitud").val()
-  
-  // function enviarDatos(latitud,longitud);
-})
 
 /*--------------------------------------------------------------------------------------*/
 //Dibuja un circulo
@@ -83,8 +66,8 @@ function dibujarMarcador(map,coord,especie){
 function dibujarTodosLosMarcadores(map){
   let longitud_base_coordenadas = base_datos_coordenadas.length;
   for(let i=0; i < longitud_base_coordenadas; i++){
-  let coord = base_datos_coordenadas[i];
-  let especie = base_datos_formulario[i]['animal'];
+    let coord = base_datos_coordenadas[i];
+    let especie = base_datos_formulario[i]['animal'];
   
     dibujarMarcador(map,coord,especie);
   }
@@ -131,3 +114,12 @@ que le pida a otra base las coordenadas de la descripcion.*/
       });
     });
 }*/
+
+//Recibe datos desde el formulario
+/*const boton_encontraste_mastcota = document.getElementById("boton-formulario")
+boton_encontraste_mastcota.addEventListener("click", function(event){
+  let latitud = $("#latitud").val()
+  let longitud = $("#longitud").val()
+  
+  // function enviarDatos(latitud,longitud);
+})*/
