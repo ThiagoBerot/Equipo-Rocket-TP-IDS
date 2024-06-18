@@ -1,7 +1,7 @@
 import mysql.connector
-from flask import Flask, jsonify, redirect, render_template, url_for, request
-from sqlalchemy import create_engine,text
+from flask import Flask, jsonify,request
 from sqlalchemy.exc import SQLAlchemyError
+import datetime
 #--------------------------------------------------------------------------------------------
 app = Flask(__name__)
 #--------------------------------------------------------------------------------------------
@@ -39,25 +39,94 @@ def obtener_mascotas():
     return jsonify(data), 200
 
 
-@app.route('/agregar_mascota', methods=["POST"])
-def agregar_mascotas():
-    nueva_mascota = request.get_json()
-    query = f"""INSERT INTO mascotas (nombre,edad,raza,color,fecha_desaparicion,fecha_encontrado) 
-            VALUES '{nueva_mascota["nombre"]}','{nueva_mascota["edad"]}','{nueva_mascota["raza"]}',
-            '{nueva_mascota["color"]}','{nueva_mascota["fecha_desaparicion"]}','{nueva_mascota["fecha_encontrado"]}';"""
+@app.route('/mascotas/<id>', methods=['GET'])
+def obtener_mascota(id):
+    query = f"""Select * FROM mascotas WHERE id={id};"""
     try:
         cursor.execute(query)
         resultado = cursor.fetchall()
-        resultado.commit()
-
     except SQLAlchemyError as err:
-       return jsonify({'message': 'Se ha produjido un error ' + str(err.__cause__)})
-    #except:
-        #return jsonify({'message': 'Se ha produjido un error'})
+       return jsonify({'message':'Se ha producido un error ' + str(err.__cause__)})
+    except:
+        return jsonify({'message':'Se ha producido un error'}),404
+    if resultado != 0:
+        data = []
+        for row in resultado:
+            diccionario = {
+            'id':row[0],
+            'nombre':row[1],
+            'edad':row[2],
+            'raza':row[3],
+            'color':row[4],
+            'fecha_desaparicion':row[5],
+            'fecha_encontrado':row[6]
+            }
+            data.append(diccionario)
+        return jsonify(data), 200
+    #return jsonify({'message':'La mascota no existe'}), 404
+
+
+@app.route('/mascotas', methods=['POST'])
+def agregar_mascotas():
+    nueva_mascota = request.get_json()
+    query = f"""INSERT INTO mascotas(nombre,edad,raza,color,fecha_desaparicion,fecha_encontrado)
+            VALUES ('{nueva_mascota["nombre"]}','{nueva_mascota["edad"]}','{nueva_mascota["raza"]}',
+            '{nueva_mascota["color"]}','{nueva_mascota["fecha_desaparicion"]}','{nueva_mascota["fecha_encontrado"]}');"""
+    try:
+        cursor.execute(query)
+        connection.commit()
+    except SQLAlchemyError as err:
+       return jsonify({'message':'Se ha producido un error ' + str(err.__cause__)})
+    except:
+        return jsonify({'message':'Se ha producido un error'}),404
     return jsonify({'message':'Se ha agregado correctamente ' + query}), 200
 
 
+@app.route('/mascotas/<id>', methods=['PATCH'])
+def modificar_mascota(id):
+    modificar_mascota = request.get_json()
+    query = f"""UPDATE mascotas SET nombre='{modificar_mascota['nombre']}' 
+    {f", fecha_encontrado = '{modificar_mascota['fecha_encontrado']}' " if "fecha_encontrado" in 
+    modificar_mascota else ""} WHERE id={id}; """
+    #query_validacion = f"Select * FROM mascotas WHERE id={id}"
+    try:
+        cursor.execute(query)
+        connection.commit()
+        #validacion = cursor.execute(query_validacion)
+        #resultado = cursor.fetchall()
+        #if resultado != 0:   
+            #cursor.execute(query)
+            #connection.commit()
+        #else:
+            #return jsonify({'message':'La mascota no existe'}), 404
+    except SQLAlchemyError as err:
+       return jsonify({'message':'Se ha producido un error ' + str(err.__cause__)})
+    except:
+        return jsonify({'message':'Se ha producido un error'}), 404
+    return jsonify({'message':'Se ha modificado correctamente ' + query}), 200
+
+
+@app.route('/mascotas/<id>', methods=['DELETE'])
+def borrar_mascota(id):
+    query = f"DELETE FROM mascotas WHERE id={id};"
+    #query_validacion = f"Select * FROM mascotas WHERE id={id};"
+    try:
+        cursor.execute(query)
+        connection.commit()
+        #validacion = cursor.execute(query_validacion)
+        #resultado = cursor.fetchall()
+        #if resultado != 0:   
+            #cursor.execute(query)
+            #connection.commit()
+        #else:
+            #return jsonify({'message':'La mascota no existe'}), 404
+    except SQLAlchemyError as err:
+       return jsonify({'message':'Se ha producido un error ' + str(err.__cause__)})
+    return jsonify({'message':'Se ha eliminado correctamente'}), 200
+
+
 #--------------------------------------------------------------------------------------------
+
 @app.route('/coordenadas', methods=['GET'])
 def obtener_coordenadas():
     query = "Select * FROM coordenadas;"
@@ -71,13 +140,86 @@ def obtener_coordenadas():
         for row in resultado:
             diccionario = {
             'id':row[0],
-            'direccion':row[1],
-            'nombre':row[2],
+            'nombre':row[1],
+            'direccion':row[2],
             'latitud':row[3],
             'longitud':row[4]
             }
+            print(diccionario)
             data.append(diccionario)
     return jsonify(data), 200
+
+
+@app.route('/coordenadas/<id>', methods=['GET'])
+def obtener_coordenada(id):
+    query = f"""Select * FROM coordenadas WHERE id={id};"""
+    try:
+        cursor.execute(query)
+        resultado = cursor.fetchall()
+    except SQLAlchemyError as err:
+       return jsonify({'message':'Se ha producido un error ' + str(err.__cause__)})
+    except:
+        return jsonify({'message':'Se ha producido un error'}),404
+    if resultado != 0:
+        data = []
+        for row in resultado:
+            diccionario = {
+            'id':row[0],
+            'nombre':row[1],
+            'direccion':row[2],
+            'latitud':row[3],
+            'longitud':row[4]
+            }
+            print(diccionario)
+            data.append(diccionario)
+        return jsonify(data), 200
+    #return jsonify({'message':'La mascota no existe'}), 404
+
+
+@app.route('/coordenadas', methods=['POST'])
+def agregar_coordenadas():
+    nueva_coordenada = request.get_json()
+    query = f"""INSERT INTO coordenadas (nombre,direccion,latitud,longitud)
+        VALUES ('{nueva_coordenada["nombre"]}','{nueva_coordenada["direccion"]}',
+        '{nueva_coordenada["latitud"]}','{nueva_coordenada["longitud"]}');"""
+    try: 
+        cursor.execute(query)
+        connection.commit()
+    except SQLAlchemyError as err:
+       return jsonify({'message':'Se ha producido un error ' + str(err.__cause__)})
+    except:
+        return jsonify({'message':'Se ha producido un error'}),404
+    return jsonify({'message':'Se ha agregado correctamente ' + query}), 200
+
+
+@app.route('/coordenadas/<id>', methods=['PATCH'])
+def modificar_coordenada(id):
+    modificar_coordenada = request.get_json()
+    query = f"""UPDATE coordenadas SET nombre='{modificar_coordenada['nombre']}', 
+    {f"direccion = '{modificar_coordenada['direccion']}' " if "direccion" in 
+    modificar_coordenada else ""}, latitud='{modificar_coordenada['latitud']}',
+    longitud='{modificar_coordenada['longitud']}'
+    WHERE id={id}; """
+    try:
+        cursor.execute(query)
+        connection.commit()
+    except SQLAlchemyError as err:
+       return jsonify({'message':'Se ha producido un error ' + str(err.__cause__)})
+    except:
+        return jsonify({'message':'Se ha producido un error'}),404
+    return jsonify({'message':'Se ha modificado correctamente ' + query}), 200
+
+
+@app.route('/coordenadas/<id>', methods=['DELETE'])
+def borrar_coordenada(id):
+    query = f"DELETE FROM coordenadas WHERE id={id};"
+    try:
+        cursor.execute(query)
+        connection.commit()
+     
+    except SQLAlchemyError as err:
+       return jsonify({'message':'Se ha producido un error ' + str(err.__cause__)})
+    return jsonify({'message':'Se ha eliminado correctamente'}), 200
 
 
 #--------------------------------------------------------------------------------------------
