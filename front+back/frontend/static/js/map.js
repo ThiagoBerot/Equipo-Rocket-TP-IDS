@@ -1,10 +1,12 @@
-import fetch from 'node-fetch';
+//import fetch from "node-fetch";
+//fetch("http://127.0.0.1:5001/coordenadas")
+//.then(response => response.json())
+//.then(coordenadas => console.log(coordenadas))
 
-fetch("http://127.0.0.1:5001/mascotas")
-  .then(response => response.json())
-  .then(mascotas => console.log(mascotas))
+const coordenadas = [{ lat: -34.5956145, lng: -58.4431949 }, { lat: -34.610631, lng: -58.369250 }]
+const mascotas = [{'id':1,'especie':'perro'}, {'id':2,'especie':'gato'}]
 
-/*-----------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------*/
 function iniciarMap() {
   let coord = { lat: -34.5956145, lng: -58.4431949 };
   let map = new google.maps.Map(document.getElementById("Mapa"), {
@@ -12,13 +14,10 @@ function iniciarMap() {
     center: coord
   });
 
-  //let mascotas = [] -> funcionRecibirMascotas();
-  //let coordenadas = [] ->function recibirCoordenadas();
-  dibujaUnCirculo(map,coord);
+  dibujaUnCirculo(map, coord);
   dibujarTodosLosMarcadores(map);
-}
-/*---------------------------------------------------------------------------------------*/
-
+}                                                                                                                                                         
+//dibujarTodosLosMarcadores();
 /*--------------------------------------------------------------------------------------*/
 //Dibuja un circulo
 function dibujaUnCirculo(map, coord) {
@@ -40,13 +39,13 @@ function cargarIcono(especie){
   if(especie == 'perro'){
     imagen = {
     url: '/static/img_map/perro.png',
-    size: new google.maps.Size(20, 32)
+    size: new google.maps.Size(100, 100)
     }
   }
   else{
     imagen = {
     url: '/static/img_map/gato.png',
-    size: new google.maps.Size(20, 32)
+    size: new google.maps.Size(100,100)
     } 
   }
   return imagen;
@@ -57,20 +56,24 @@ function dibujarMarcador(map,coord,especie){
   let marker = new google.maps.Marker({
       position: coord,
       map: map,
-      //icon: cargarIcono(especie)
+      icon: cargarIcono(especie)
     });
   }
 /*---------------------------------------------------------------------------------------*/
 //Carga todos los animales perdidps de la base de datos y sus coordenas para 
 //dibujar todos los marcadores en el mapa.
+
+
 function dibujarTodosLosMarcadores(map){
-  let longitud_base_coordenadas = base_datos_coordenadas.length;
-  for(let i=0; i < longitud_base_coordenadas; i++){
-    let coord = base_datos_coordenadas[i];
-    let especie = base_datos_formulario[i]['animal'];
-  
+  let longitud = coordenadas.length;
+
+  for(let i=0; i < longitud; i++){
+    coord = coordenadas[i];
+    especie = mascotas[i]['especie'];
+
     dibujarMarcador(map,coord,especie);
   }
+ 
 }
 
 

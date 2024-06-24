@@ -29,16 +29,16 @@ def obtener_mascotas():
             diccionario = {
             'id':row[0],
             'nombre':row[1],
-            'tipo':row[2],
-            'sexo':row[3],          
-            'edad':row[4],
-            'raza':row[5],
-            'color':row[6],
-            'tamanio':row[7],
-            'mail':row[8],
-            'descripcion':row[9],
-            'fecha_desaparicion':row[10],
-            'fecha_encontrado':row[11]
+            #'tipo':row[2],
+            #'sexo':row[3],          
+            #'edad':row[4],
+            #'raza':row[5],
+            #'color':row[6],
+            #'tamanio':row[7],
+            #'mail':row[8],
+            #'descripcion':row[9],
+            #'fecha_desaparicion':row[10],
+            #'fecha_encontrado':row[11]
             }
             data.append(diccionario)
     return jsonify(data), 200

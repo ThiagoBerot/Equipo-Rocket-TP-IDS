@@ -1,6 +1,6 @@
 
 {
-  "main": "map.js",
+  
   "type": "module",
 
   "dependencies": {
