@@ -8,6 +8,7 @@ def index():
 
 @app.route('/mapa')
 def mapa():
+    
     return render_template('mapa.html')
 
 @app.route('/mascotas')

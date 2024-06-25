@@ -20,11 +20,12 @@ CREATE TABLE IF NOT EXISTS coordenadas(
     direccion VARCHAR(200),
     latitud VARCHAR(200) NOT NULL,
     longitud VARCHAR(200) NOT NULL,
+    especie VARCHAR(50) NOT NULL,
     PRIMARY KEY (id)
 );
 
 INSERT INTO mascotas (nombre,tipo,sexo,edad,raza,color,tamanio,mail,descripcion,fecha_desaparicion,fecha_encontrado)
-VALUES ("Ryan","Gato","Macho","Adulto","americano de pelo corto","Gris","Grande","ryan@gmail.com","Desaparecio de repente",'2024-2-23 00:00:00', NULL);
+VALUES ("Ryan","gato","Macho","Adulto","americano de pelo corto","Gris","Grande","ryan@gmail.com","Desaparecio de repente",'2024-2-23 00:00:00', NULL);
 INSERT INTO mascotas (nombre,tipo,sexo,edad,raza,color,tamanio,mail,descripcion,fecha_desaparicion,fecha_encontrado)
 VALUES ("Milo","gato","Macho","cachorro","ragdoll","negro y blanco","pequeño","milo@gmail.com","Desaparecio de repente",'2024-3-11 00:00:00', NULL);
 INSERT INTO mascotas (nombre,tipo,sexo,edad,raza,color,tamanio,mail,descripcion,fecha_desaparicion,fecha_encontrado)
@@ -42,22 +43,22 @@ VALUES ("Huh?","gato","Macho","adulto","angora turco","blanco","Grande","huh@gma
 INSERT INTO mascotas (nombre,tipo,sexo,edad,raza,color,tamanio,mail,descripcion,fecha_desaparicion,fecha_encontrado)
 VALUES ("Pancho","perro","Macho","adulto","chihuahua","blanco hueso","Pequeño","pancho@gmail.com","Desaparecio de repente",'2024-3-24 00:00:00', NULL);
 
-INSERT INTO coordenadas (nombre,direccion,latitud,longitud)
-VALUES ("Ryan","Av. Paseo Colón 250, C1054","-34.610631","-58.369250");
-INSERT INTO coordenadas (nombre,direccion,latitud,longitud)
-VALUES ("Milo","Av. Rivadavia 717, C1002AAF","-34.608131","-58.376856");
-INSERT INTO coordenadas (nombre,direccion,latitud,longitud)
-VALUES ("pepito","Jeanette Campbell 4581","-34.675994","-58.455311");
-INSERT INTO coordenadas (nombre,direccion,latitud,longitud)
-VALUES ("Karen","Av. Rivadavia 6151-6193","-34.625359","-58.453405");
-INSERT INTO coordenadas (nombre,direccion,latitud,longitud)
-VALUES ("Horacio","Nicaragua 4600-4548, C1414BVF","-34.588418","-58.424974");
-INSERT INTO coordenadas (nombre,direccion,latitud,longitud)
-VALUES ("Mika","Av. Olazábal 2501-2599, C1428DHH","-34.560870","-58.459699");
-INSERT INTO coordenadas (nombre,direccion,latitud,longitud)
-VALUES ("Raul","Montañeses 2225, C1428 ","-34.556089","-58.450057");
-INSERT INTO coordenadas (nombre,direccion,latitud,longitud)
-VALUES ("Huh?","Av. Pres. Figueroa Alcorta 5300-5288, C1426CBP","-34.565176", "-58.420497");
-INSERT INTO coordenadas (nombre,direccion,latitud,longitud)
-VALUES ("Pancho","Gregorio de Laferrère 2601-2699, C1406HFE","-34.637985", "-58.461345");
+INSERT INTO coordenadas (nombre,direccion,latitud,longitud,especie)
+VALUES ("Ryan","Av. Paseo Colón 250, C1054","-34.610631","-58.369250","gato");
+INSERT INTO coordenadas (nombre,direccion,latitud,longitud,especie)
+VALUES ("Milo","Av. Rivadavia 717, C1002AAF","-34.608131","-58.376856","gato");
+INSERT INTO coordenadas (nombre,direccion,latitud,longitud,especie)
+VALUES ("pepito","Jeanette Campbell 4581","-34.675994","-58.455311","perro");
+INSERT INTO coordenadas (nombre,direccion,latitud,longitud,especie)
+VALUES ("Karen","Av. Rivadavia 6151-6193","-34.625359","-58.453405","gato");
+INSERT INTO coordenadas (nombre,direccion,latitud,longitud,especie)
+VALUES ("Horacio","Nicaragua 4600-4548, C1414BVF","-34.588418","-58.424974","perro");
+INSERT INTO coordenadas (nombre,direccion,latitud,longitud,especie)
+VALUES ("Mika","Av. Olazábal 2501-2599, C1428DHH","-34.560870","-58.459699","perro");
+INSERT INTO coordenadas (nombre,direccion,latitud,longitud,especie)
+VALUES ("Raul","Montañeses 2225, C1428 ","-34.556089","-58.450057","gato");
+INSERT INTO coordenadas (nombre,direccion,latitud,longitud,especie)
+VALUES ("Huh?","Av. Pres. Figueroa Alcorta 5300-5288, C1426CBP","-34.565176", "-58.420497","gato");
+INSERT INTO coordenadas (nombre,direccion,latitud,longitud,especie)
+VALUES ("Pancho","Gregorio de Laferrère 2601-2699, C1406HFE","-34.637985", "-58.461345","perro");
 

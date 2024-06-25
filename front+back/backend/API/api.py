@@ -2,8 +2,13 @@ import mysql.connector
 from flask import Flask, jsonify,request
 from sqlalchemy.exc import SQLAlchemyError
 import datetime
+from flask_cors import CORS, cross_origin
+
+
 #--------------------------------------------------------------------------------------------
 app = Flask(__name__)
+
+CORS(app)
 #--------------------------------------------------------------------------------------------
 #Conectamos la base de datos con python
 connection = mysql.connector.connect(
@@ -136,7 +141,7 @@ def borrar_mascota(id):
 
 
 #--------------------------------------------------------------------------------------------
-
+@cross_origin
 @app.route('/coordenadas', methods=['GET'])
 def obtener_coordenadas():
     query = "Select * FROM coordenadas;"
@@ -153,7 +158,8 @@ def obtener_coordenadas():
             'nombre':row[1],
             'direccion':row[2],
             'latitud':row[3],
-            'longitud':row[4]
+            'longitud':row[4],
+            'especie':row[5]
             }
             print(diccionario)
             data.append(diccionario)

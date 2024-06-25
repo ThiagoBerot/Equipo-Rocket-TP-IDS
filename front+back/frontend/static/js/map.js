@@ -1,23 +1,49 @@
-//import fetch from "node-fetch";
-//fetch("http://127.0.0.1:5001/coordenadas")
-//.then(response => response.json())
-//.then(coordenadas => console.log(coordenadas))
+/*const options = {
+  method: 'GET',
+  host: '127.0.0.1:5001'
+}*/
+// pip install flask-cors
 
-const coordenadas = [{ lat: -34.5956145, lng: -58.4431949 }, { lat: -34.610631, lng: -58.369250 }]
-const mascotas = [{'id':1,'especie':'perro'}, {'id':2,'especie':'gato'}]
+function conseguirCoordenadas(map){
+  let url = "http://127.0.0.1:5001/coordenadas"
+  fetch(url)
+    .then(response => response.json())
+    .then(data => mostrarMascotas(data,map))
+    .catch(error => console.log(error))
+  }
+
+const mostrarMascotas = (data,map) => {
+  console.log(data)
+
+  let longitud = data.length;
+
+  for(let i=0; i < longitud; i++){
+    
+    let coord =  { lat: parseFloat(data[i]['latitud']), lng: parseFloat(data[i]['longitud'])};
+    let especie = data[i]['especie']
+
+    let marker = new google.maps.Marker({
+      position: coord,
+      map: map,
+      icon: cargarIcono(especie)
+    });
+  }
+}
+
+
 
 /*----------------------------------------------------------------------------------*/
 function iniciarMap() {
   let coord = { lat: -34.5956145, lng: -58.4431949 };
   let map = new google.maps.Map(document.getElementById("Mapa"), {
-    zoom: 13,
+    zoom: 12,
     center: coord
   });
 
   dibujaUnCirculo(map, coord);
-  dibujarTodosLosMarcadores(map);
-}                                                                                                                                                         
-//dibujarTodosLosMarcadores();
+  conseguirCoordenadas(map);
+}                                                                                                                                                     
+
 /*--------------------------------------------------------------------------------------*/
 //Dibuja un circulo
 function dibujaUnCirculo(map, coord) {
@@ -51,30 +77,6 @@ function cargarIcono(especie){
   return imagen;
 }
 /*---------------------------------------------------------------------------------------*/
-//Dibuja una marcador
-function dibujarMarcador(map,coord,especie){
-  let marker = new google.maps.Marker({
-      position: coord,
-      map: map,
-      icon: cargarIcono(especie)
-    });
-  }
-/*---------------------------------------------------------------------------------------*/
-//Carga todos los animales perdidps de la base de datos y sus coordenas para 
-//dibujar todos los marcadores en el mapa.
-
-
-function dibujarTodosLosMarcadores(map){
-  let longitud = coordenadas.length;
-
-  for(let i=0; i < longitud; i++){
-    coord = coordenadas[i];
-    especie = mascotas[i]['especie'];
-
-    dibujarMarcador(map,coord,especie);
-  }
- 
-}
 
 
 /*-------------------------------------------------------------------------------------- */
