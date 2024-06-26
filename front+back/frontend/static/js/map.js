@@ -4,18 +4,54 @@
 }*/
 // pip install flask-cors
 
-
-
-
-
 /*----------------------------------------------------------------------------------------* */
-
 
 function crearMascota(map,coord,especie){
   let marker = new google.maps.Marker({
     position: coord,
     map: map,
     icon: cargarIcono(especie)
+  });
+}
+
+//Muestra los refugios de la vista "¿Perdiste una mascota?" como marcadores en el mapa
+function mostrarRefugios(map){
+  let refugios = {
+    'refugio1': {lat: -34.58387452491165, lng :-58.406567244141655},
+    'refugio2': {lat: -34.60302588670758, lng:  -58.4084567788676},
+    'refugio3': {lat: -34.61663306715347, lng: -58.38580257957804},
+    'refugio4': {lat: -34.56753902849066, lng: -58.43550243629815}
+    };
+  
+
+  for(let key in refugios){
+    let marker = new google.maps.Marker({
+      position: refugios[key],
+      map: map,
+      icon: {
+        url: '/static/img_map/icono-refugio.png',
+        size: new google.maps.Size(90, 90)
+      }
+    });
+  
+  }
+}
+
+//Función de prueba para ventana de información al tocar los marcadores del mapa
+function mostrarInfoMarcadores(map){
+  let coord = new google.maps.Marker({
+    position: {lat: -34.58387452491165, lng :-58.406567244141655},
+    map: map
+  });
+  
+  let contentString = 'TEXTO DE PRUEBA';
+
+  let infoWindow = new google.maps.InfoWindow({
+    content: contentString
+  });
+
+  coord.addListener('click', function() {
+    infoWindow.open(map, coord);
   });
 }
 
@@ -37,7 +73,8 @@ const mostrarMascotas = (data,map) => {
 
     crearMascota(map,coord,especie)
   }
-}
+} 
+
 /*----------------------------------------------------------------------------------------*/
 
 function iniciarMap() {
@@ -48,6 +85,8 @@ function iniciarMap() {
   });
   dibujaUnCirculo(map, coord);
   conseguirCoordenadas(map);
+  mostrarRefugios(map);
+  mostrarInfoMarcadores(map);
 }                                                                                                                                                     
 
 /*--------------------------------------------------------------------------------------*/

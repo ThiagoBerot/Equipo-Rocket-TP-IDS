@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}¿Encontraste una mascota?{% endblock %}
+{% block title %}¿Perdiste una mascota?{% endblock %}
 
 {% block cssad %}<link rel="stylesheet" href="{{url_for('static', filename="css/encontraste_mascota.css")}}"/>{% endblock %}
 
@@ -10,9 +10,9 @@
    <section class="contenido">
     <div class="encontraste_mascota_content">
       <div class="titulo_desc">
-        <h1>¿Encontraste una mascota?</h1>
+        <h1>¿Perdiste una mascota?</h1>
         <p>
-          Si encontraste una mascota sin dueño, acá podes subir información sobre
+          Si perdiste a tu mascota, acá podes subir información sobre
           ella para ingresarla a nuestra base de datos. <br>
           ¡Nosotros nos encargaremos
           de ubicarla en el mapa y hacerte llegar información si su responsable la
@@ -38,7 +38,7 @@
                 <input type="text" id="nombre" name="nombre_animalf" placeholder="Ej: Manchita">
               </li>
               <li>
-                <label for="animal">Indique si la mascota encontrada es un perro o un gato:</label>
+                <label for="animal">Indique si la mascota perdida es un perro o un gato:</label>
                 <br>
                 <select aria-label= "se elige el tipo de animal" id="tipo" name="tipo">
                   <option value="none">-</option>
@@ -92,7 +92,7 @@
                 </select>
               </li>
               <li>
-                <label for="zona">Zona donde lo encontró:</label>
+                <label for="zona">Zona donde lo perdió:</label>
                 <br>
                 <input type="text" id="latitud" name="zona_longitudf" placeholder="Latitud"/>
                 <input type="text" id="longitud" name="zona_latitudf" placeholder="Longitud"/>
@@ -103,7 +103,7 @@
                 <textarea id="descripcion" name="descripcion" placeholder="Ej: Orejas grandes, ojos oscuros, collar rojo."></textarea>
               </li>
               <li>
-                <label for="fecha">¿Cuándo lo encontraste?</label>
+                <label for="fecha">¿Cuándo lo perdiste?</label>
                 <br>
                 <input type="date" id="fecha_encontrado" name="fecha_encontrado"/>
               </li>
@@ -148,13 +148,19 @@
         <h2>Mascotas en adopción Argentina</h2>
         <h3>2494 Av.Cnel Díaz, Cdad. Autónoma de Buenos Aires</h3>
         <br>
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-           aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
-           in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-           Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-           deserunt mollit anim id est laborum."</p>
+        <p>
+          Bienvenidos a nuestro centro de adopción de perros y gatos, 
+          un refugio dedicado a proporcionar un hogar temporal a mascotas perdidas y abandonadas.
+          Nos comprometemos a ofrecerles cuidado, amor y atención mientras trabajamos arduamente para 
+          reunirlos con sus familias o encontrarles nuevos hogares llenos de cariño. <br> 
+          En nuestro centro, cada animal recibe la oportunidad de ser feliz y querido, esperando ansiosamente a su nuevo mejor amigo. 
+          ¡Unite a nosotros en esta noble causa y da una segunda oportunidad a estos maravillosos compañeros!
+          <br><br>
+          <ul>
+            <li>Teléfono: +54 11 1234-5678</li>
+            <li>Email: contacto_MEAP@gmail.com</li>
+          </ul>
+        </p>
       </div>
 
       <div class="imagenes">
@@ -187,13 +193,16 @@
         <h2>Refugio el gran Pirincho</h2>
         <h3>Lavalle 3000, C1088 Cdad. Autónoma de Buenos Aires</h3>
         <br>
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-          aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
-          in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-          deserunt mollit anim id est laborum."</p>
+        <p>
+          "El Gran Pirincho" es un acogedor refugio en la Ciudad Autónoma de Buenos Aires 
+          dedicado a la protección y el bienestar de perros y gatos perdidos. Acá, cada mascota recibe el cuidado 
+          y el amor que necesita mientras espera reunirse con su familia o encontrar un nuevo hogar lleno de afecto.<br>
+          Nuestra misión es brindarles una segunda oportunidad y mejorar su calidad de vida, transformando sus historias en finales felices.
+          Vení y descubrí cómo podes marcar la diferencia en la vida de estos adorables compañeros.
+          <br><br>
+            Teléfono: +54 11 8765-4321 <br>
+            Email: info_elgranpirincho@hotmail.com
+        </p>
       </div>
     </div>
 
@@ -203,13 +212,19 @@
         <h2>Hogar de protección Lourdes</h2>
         <h3>Chile 1393, C1098 Buenos Aires</h3>
         <br>
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-           aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
-           in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-           Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-           deserunt mollit anim id est laborum."</p>
+        <p>
+          En el Hogar de Protección y Adopción de Perros y Gatos "Lourdes", abrimos nuestros brazos
+          a mascotas que perdieron su hogar o que nunca lo tuvieron. Brindamos a estos animales el amor,
+          el cuidado y la atención médica que necesitan para que puedan sanar tanto física como emocionalmente.<br>
+          Nuestro objetivo final es encontrarles un hogar definitivo donde puedan vivir felices y rodeados de amor
+          por el resto de sus vidas. Si estás pensando en adoptar una mascota, te invitamos a visitar nuestro refugio
+          y conocer a nuestros peluditos.¡Te aseguramos que vas a encontrar al compañero perfecto para tu hogar!
+          <br><br>
+          <ul>
+            <li>Teléfono: +54 11 4717-3124</li>
+            <li>Email: hogarlourdes@gmail.com</li>
+          </ul>
+        </p>
       </div>
 
       <div class="imagenes">
@@ -241,13 +256,15 @@
         <h2>Refugio Amor Animal</h2>
         <h3>Av. Jorge Newbery 1761, C1426 Cdad. Autónoma de Buenos Aires</h3>
         <br>
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
-        in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-        deserunt mollit anim id est laborum."</p>
+        <p>
+          Un refugio cálido y amoroso para perros y gatos en busca de un hogar. 
+          Nuestro compromiso es brindar protección, cuidado y cariño a las mascotas perdidas.
+          Cada cola que menea y cada ronroneo nos inspira a seguir adelante. 
+          Unite a nuestra familia y ayudá a darles una segunda oportunidad llena de amor y esperanza.
+          <br><br>
+          Teléfono: +54 11 9876-5432 <br>
+          Email: amoranimal@gmail.com
+        </p>
       </div>
 
     </div>
