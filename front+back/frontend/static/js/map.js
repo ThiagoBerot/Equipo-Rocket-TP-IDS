@@ -4,79 +4,115 @@
 }*/
 // pip install flask-cors
 
-/*----------------------------------------------------------------------------------------* */
+/* ---------------------------- FUNCIONES DEL MAPA -------------------------------- */
 
-function crearMascota(map,coord,especie){
-  let marker = new google.maps.Marker({
-    position: coord,
-    map: map,
-    icon: cargarIcono(especie)
-  });
-}
-
-//Muestra los refugios de la vista "¿Perdiste una mascota?" como marcadores en el mapa
+//Muestra los refugios de la vista "¿Perdiste una mascota?" como marcadores en el mapa, al clickearlos aparece una ventana con su nombre
 function mostrarRefugios(map){
   let refugios = {
-    'refugio1': {lat: -34.58387452491165, lng :-58.406567244141655},
-    'refugio2': {lat: -34.60302588670758, lng:  -58.4084567788676},
-    'refugio3': {lat: -34.61663306715347, lng: -58.38580257957804},
-    'refugio4': {lat: -34.56753902849066, lng: -58.43550243629815}
+    'refugio1': {lat: -34.58387452491165, lng :-58.406567244141655, nombre: 'Mascotas en adopción Argentina'},
+    'refugio2': {lat: -34.60302588670758, lng:  -58.4084567788676, nombre: 'Refugio el gran Pirincho'},
+    'refugio3': {lat: -34.61663306715347, lng: -58.38580257957804, nombre: 'Hogar de protección Lourdes'},
+    'refugio4': {lat: -34.56753902849066, lng: -58.43550243629815, nombre: 'Refugio Amor Animal'}
     };
   
 
   for(let key in refugios){
     let marker = new google.maps.Marker({
-      position: refugios[key],
+      position: {lat: refugios[key].lat, lng: refugios[key].lng},
       map: map,
       icon: {
         url: '/static/img_map/icono-refugio.png',
-        size: new google.maps.Size(90, 90)
-      }
+        size: new google.maps.Size(90, 90),
+      },
     });
-  
+    
+    let infoRefugio = `
+    <div>
+      <h1>${refugios[key].nombre}</h1>
+    </div>
+    `
+    ;
+    
+    let infoWindow = new google.maps.InfoWindow({
+      content: infoRefugio
+    });
+    
+    marker.addListener('click', function() {
+      infoWindow.open(map, marker);
+    });
+
   }
 }
 
-//Función de prueba para ventana de información al tocar los marcadores del mapa
-function mostrarInfoMarcadores(map){
-  let coord = new google.maps.Marker({
-    position: {lat: -34.58387452491165, lng :-58.406567244141655},
-    map: map
+//Obtiene las coordenadas y la información de las mascotas desde la API para luego procesarlas en la función mostrarTodasLasMascotas()
+function conseguirCoordenadas(map){
+  let urlCoordenadas = "http://127.0.0.1:5001/coordenadas";
+  let urlMascotas = "http://127.0.0.1:5001/mascotas";
+
+  fetch(urlCoordenadas)
+    .then(response => response.json())
+    .then(dataCoordenadas => {
+      fetch(urlMascotas)
+        .then(response => response.json())
+        .then(dataMascotas => {
+          mostrarTodasLasMascotas(dataCoordenadas, dataMascotas, map);
+        })
+        .catch(error => console.log(error));
+    })
+    .catch(error => console.log(error));
+}
+
+/* Itera cada elemento del Json de las coordenadas para matchear su id con la de la mascota correspondiente. 
+Arma el par ordenado de su ubicación y obtiene la especie de la mascota para mandarla 
+a la función crearMascontaConInfo */
+const mostrarTodasLasMascotas = (dataCoordenadas, dataMascotas, map) => {
+  dataCoordenadas.forEach(coordMascota => {
+    let mascota = dataMascotas.find(m => m.id === coordMascota.id);
+    if (mascota) {
+      let coord = { lat: parseFloat(coordMascota.latitud), lng: parseFloat(coordMascota.longitud) };
+      let especie = coordMascota.especie;
+      crearMascotaConInfo(map, coord, especie, mascota);
+    }
   });
-  
-  let contentString = 'TEXTO DE PRUEBA';
+}
+
+/* Crea marcadores en el mapa con las coordenadas donde se perdieron las mascotas.
+Carga el icono correspondiente a su especie con la función cargarIcono()
+y utiliza la información de la mascota para que al clickear el marcador aparezca una ventana con sus datos */
+function crearMascotaConInfo(map, coord, especie, mascota){
+  let marker = new google.maps.Marker({
+    position: coord,
+    map: map,
+    icon: cargarIcono(especie)
+  });
+
+  let infoMascota = `
+    <div>
+      <h2>${mascota.nombre}</h2>
+      <p><strong>Raza:</strong> ${mascota.raza}</p>
+      <p><strong>Edad:</strong> ${mascota.edad}</p>
+      <p><strong>Tamaño:</strong> ${mascota.tamanio}</p>
+      <p><strong>Color:</strong> ${mascota.color}</p>
+      <p><strong>Descripción:</strong> ${mascota.descripcion}</p>
+      <p><strong>Fecha de desaparición:</strong> ${new Date(mascota.fecha_desaparicion).toLocaleDateString()}</p>
+      <p><strong>Contacto:</strong> ${mascota.mail}</p>
+      <br>
+      <label>Si usted ya encontró a esta mascota, presione el siguiente botón. Lo borraremos de la base de datos:</label>
+      <button>¡Encontré a mi mascota!</button>
+    </div>
+  `;
 
   let infoWindow = new google.maps.InfoWindow({
-    content: contentString
+    content: infoMascota
   });
 
-  coord.addListener('click', function() {
-    infoWindow.open(map, coord);
+  marker.addListener('click', function() {
+    infoWindow.open(map, marker);
   });
 }
 
-function conseguirCoordenadas(map){
-  let url = "http://127.0.0.1:5001/coordenadas"
-  fetch(url)
-    .then(response => response.json())
-    .then(data => mostrarMascotas(data,map))
-    .catch(error => console.log(error))
-  }
-
-const mostrarMascotas = (data,map) => {
-  console.log(data)
-  let longitud = data.length;
-
-  for(let i=0; i < longitud; i++){
-    let coord =  { lat: parseFloat(data[i]['latitud']), lng: parseFloat(data[i]['longitud'])};
-    let especie = data[i]['especie']
-
-    crearMascota(map,coord,especie)
-  }
-} 
-
-/*----------------------------------------------------------------------------------------*/
-
+/* Inicia el mapa centrado en la zona de CABA.
+Se ayuda de las funciones dibujaUnCirculo(), conseguirCoordenadas() y mostrarRefugios() */
 function iniciarMap() {
   let coord = { lat: -34.5956145, lng: -58.4431949 };
   let map = new google.maps.Map(document.getElementById("Mapa"), {
@@ -86,11 +122,9 @@ function iniciarMap() {
   dibujaUnCirculo(map, coord);
   conseguirCoordenadas(map);
   mostrarRefugios(map);
-  mostrarInfoMarcadores(map);
-}                                                                                                                                                     
-
-/*--------------------------------------------------------------------------------------*/
-//Dibuja un circulo
+}
+                                                                                                                                                 
+//Dibuja un circulo alrededor de la zona de CABA.
 function dibujaUnCirculo(map, coord) {
   const circleOptions = {
     strokeColor: '#FF0000',
@@ -103,8 +137,8 @@ function dibujaUnCirculo(map, coord) {
   const circle = new google.maps.Circle(circleOptions);
   return circle;
 }
-/*---------------------------------------------------------------------------------------*/
-//Carga el icono segun la especie
+
+//Carga el ícono del marcador de la mascota segun su especie (perro o gato)
 function cargarIcono(especie){
   let imagen;
   if(especie == 'perro'){
@@ -121,17 +155,18 @@ function cargarIcono(especie){
   }
   return imagen;
 }
-/*---------------------------------------------------------------------------------------*/
+
+/* -------------------------------------------------------------------------------- */
 
 
-/*-------------------------------------------------------------------------------------- */
+/* ---------------------------- FUNCIONES DEL FILTRO -------------------------------- */
+
 /*Funcion que BUSCA el marker correcto segun el filtro,
 le va a preguntar a la base los datos seleccionados para
 que le pida a otra base las coordenadas de la descripcion.*/
 //Busca un marcador
 
 let filtro = []
-
 
 function filtrarAnimal(filtro){
   document.getElementById('idFiltrarAnimal').innerText = `Ud. ha seleccionado la descripcion ${filtro[0]}, ${filtro[1]}, ${filtro[2]}, ${filtro[3]}, ${filtro[4]}, ${filtro[5]}`;
@@ -209,10 +244,7 @@ function seleccionarFecha(){
   filtrarAnimal(filtro)
 }
 
-
-
-  
-/*-----------------------------------------------------------------------------------*/
+/* ---------------------------------------------------------------------------------- */
 
 //Agrega evento a marcador
 /*function addPanToMarker(map,markers) {
