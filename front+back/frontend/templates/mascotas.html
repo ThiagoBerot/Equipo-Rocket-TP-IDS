@@ -9,20 +9,22 @@
         <h2 class="perdidosTitle">Perdidos Recientemente</h2>
         <p >Una lista de mascotas perdidas recientemente.</p>
       </div>
-      <div class="grillaPerdidos">
-        {% for i in range(1, 10) %}
-          <div class="grillaTarjeta">
-            <img class="grillaImagen" src="{{ url_for('static', filename='img/perdido'~ i ~'.jpeg') }}" />
-            <div class="grillaInfo">
-              <h3>Nombre:{{datos[i]["nombre"]}}</h3>
-              <h3>Raza:{{datos[i]["raza"]}}</h3>
-              <h3>Color:{{datos[i]["color"]}}</h3>
-              <h3>Edad:{{datos[i]["tamanio"]}}</h3>
-              <h3>Fecha de desaparición:{{datos[i]["fecha_perdido"]}}</h3>
-            </div>
-          </div>
-        {% endfor %}
+      <div class="grillaPerdidos" id = "mascotas">
       </div>
+      <script src="{{ url_for('static', filename='js/mascotas.js') }}"></script>
       </section>
 
 {% endblock %}
+
+<!--{% for i in range(1, 10) %}
+          <div class="grillaTarjeta">
+            <img class="grillaImagen" src="{{ url_for('static', filename='img/perdido'~ i ~'.jpeg') }}" />
+            <div class="grillaInfo">
+              <h3>Nombre: <a id="nombre"></a></h3>
+              <h3>Raza: <a id="raza"></a></h3>
+              <h3>Color: <a id="color"></a></h3>
+              <h3>Edad: <a id="edad"></a></h3>
+              <h3>Fecha de desaparición: <a id="fecha_desa"></a></h3>
+            </div>
+          </div>
+        {% endfor %} -->
