@@ -12,6 +12,22 @@
             <h2>Mapa</h2>
             <!-- Filtro -->
             <div class="filtro">
+
+            <label for="filtroTipo">Tipo:</label>
+            <select id="filtroTipo" onchange="seleccionarTipo();">
+                <option value="todos">Todos</option>
+                <option value="perro">Perro</option>
+                <option value="gato">Gato</option>
+            </select> 
+
+            <label for="filtroSexo">Sexo:</label>
+            <select id="filtroSexo" onchange="seleccionarSexo();">
+                <option value="todos">Todos</option>
+                <option value="macho">Macho</option>
+                <option value="hembra">Hembra</option>
+            </select>
+
+
             <label for="filtroColor">Color:</label>
             <select id="filtroColor" onchange="seleccionarColor();">
                 <option value="todos">Todos</option>
@@ -20,13 +36,21 @@
                 <option value="marrón">Marrón</option>
                 <option value="naranja">Naranja</option>
                 <option value="manchas">Manchas</option>
-            </select>
+                <option value="negro y blanco">Negro y blanco</option>
+                <option value="marron y blanco">Marron y blanco</option>
+                <option value="naranja y blanco">Naranja y blanco</option>
+                <option value="gris">Gris</option>
+                <option value="marron claro">Marron claro</option>
+                
+            </select>     
+
             <label for="filtroRaza">Raza:</label>
             <select id="filtroRaza" onchange="seleccionarRaza();">
                 <option value="todos">Todos</option>
                 <option value="labrador">Labrador</option>
-                <option value="pastor_aleman">Pastor Alemán</option>
+                <option value="pastor aleman">Pastor Alemán</option>
                 <option value="siames">Siamés</option>
+                <option value="chihuahua">Chihuahua</option>
             </select>
             <label for="filtroEdad">Edad:</label>
             <select id="filtroEdad" onchange="seleccionarEdad();">
@@ -38,6 +62,9 @@
             <input type="date" id="filtroFecha"  onchange="seleccionarFecha();"/>
             </div>
         </section>
+        <span id="idFiltrarAnimal"></span>
+        <br>
+        <span id="idCoincidencia"><br></span>
 
         <!-- Acá va la api -->
         <!-- Empieza backend -->

@@ -25,23 +25,23 @@ CREATE TABLE IF NOT EXISTS coordenadas(
 );
 
 INSERT INTO mascotas (nombre,tipo,sexo,edad,raza,color,tamanio,mail,descripcion,fecha_desaparicion,fecha_encontrado)
-VALUES ("Ryan","gato","Macho","Adulto","americano de pelo corto","Gris","Grande","ryan@gmail.com","Desaparecio de repente",'2024-2-23 00:00:00', NULL);
+VALUES ("Ryan","gato","macho","adulto","americano de pelo corto","gris","grande","ryan@gmail.com","Desaparecio de repente",'2024-2-23 00:00:00', NULL);
 INSERT INTO mascotas (nombre,tipo,sexo,edad,raza,color,tamanio,mail,descripcion,fecha_desaparicion,fecha_encontrado)
-VALUES ("Milo","gato","Macho","cachorro","ragdoll","negro y blanco","pequeño","milo@gmail.com","Desaparecio de repente",'2024-3-11 00:00:00', NULL);
+VALUES ("Milo","gato","macho","cachorro","ragdoll","negro y blanco","pequeño","milo@gmail.com","Desaparecio de repente",'2024-3-11 00:00:00', NULL);
 INSERT INTO mascotas (nombre,tipo,sexo,edad,raza,color,tamanio,mail,descripcion,fecha_desaparicion,fecha_encontrado)
-VALUES ("pepito","perro","Macho","cachorro","golden retriever","marron claro","pequeño","pepito@gmail.com","Desaparecio de repente",'2024-4-4 00:00:00', NULL);
+VALUES ("pepito","perro","macho","cachorro","golden retriever","marron claro","pequeño","pepito@gmail.com","Desaparecio de repente",'2024-4-4 00:00:00', NULL);
 INSERT INTO mascotas (nombre,tipo,sexo,edad,raza,color,tamanio,mail,descripcion,fecha_desaparicion,fecha_encontrado)
-VALUES ("Karen","gato","Hembra","adulto","americano de pelo corto","naranja y blanco","mediano","karen@gmail.com","Desaparecio de repente",'2024-1-1 00:00:00', NULL);
+VALUES ("Karen","gato","hembra","adulto","americano de pelo corto","naranja y blanco","mediano","karen@gmail.com","Desaparecio de repente",'2024-1-1 00:00:00', NULL);
 INSERT INTO mascotas (nombre,tipo,sexo,edad,raza,color,tamanio,mail,descripcion,fecha_desaparicion,fecha_encontrado)
-VALUES ("Horacio","perro","Macho","adulto"," border collie","marron y blanco","grande","horacio@gmail.com","Desaparecio de repente",'2024-5-25 00:00:00', NULL);
+VALUES ("Horacio","perro","macho","adulto"," border collie","marron y blanco","grande","horacio@gmail.com","Desaparecio de repente",'2024-5-25 00:00:00', NULL);
 INSERT INTO mascotas (nombre,tipo,sexo,edad,raza,color,tamanio,mail,descripcion,fecha_desaparicion,fecha_encontrado)
-VALUES ("Mika","perro","Hembra","adulto","Jack Rusell Terrier","blanco","mediano","mika@gmail.com","Desaparecio de repente",'2023-11-21 00:00:00', NULL);
+VALUES ("Mika","perro","hembra","adulto","Jack Rusell Terrier","blanco","mediano","mika@gmail.com","Desaparecio de repente",'2023-11-21 00:00:00', NULL);
 INSERT INTO mascotas (nombre,tipo,sexo,edad,raza,color,tamanio,mail,descripcion,fecha_desaparicion,fecha_encontrado)
-VALUES ("Raul","gato","Macho","adulto","americano de pelo corto","gris","mediano","raul@gmail.com","Desaparecio de repente",'2024-1-23 00:00:00', NULL);
+VALUES ("Raul","gato","macho","adulto","americano de pelo corto","gris","mediano","raul@gmail.com","Desaparecio de repente",'2024-1-23 00:00:00', NULL);
 INSERT INTO mascotas (nombre,tipo,sexo,edad,raza,color,tamanio,mail,descripcion,fecha_desaparicion,fecha_encontrado)
-VALUES ("Huh?","gato","Macho","adulto","angora turco","blanco","Grande","huh@gmail.com","Desaparecio de repente",'2024-6-1 00:00:00', NULL);
+VALUES ("Huh?","gato","macho","adulto","angora turco","blanco","grande","huh@gmail.com","Desaparecio de repente",'2024-6-1 00:00:00', NULL);
 INSERT INTO mascotas (nombre,tipo,sexo,edad,raza,color,tamanio,mail,descripcion,fecha_desaparicion,fecha_encontrado)
-VALUES ("Pancho","perro","Macho","adulto","chihuahua","blanco hueso","Pequeño","pancho@gmail.com","Desaparecio de repente",'2024-3-24 00:00:00', NULL);
+VALUES ("Pancho","perro","macho","adulto","chihuahua","blanco","pequeño","pancho@gmail.com","Desaparecio de repente",'2024-3-24 00:00:00', NULL);
 
 INSERT INTO coordenadas (nombre,direccion,latitud,longitud,especie)
 VALUES ("Ryan","Av. Paseo Colón 250, C1054","-34.610631","-58.369250","gato");

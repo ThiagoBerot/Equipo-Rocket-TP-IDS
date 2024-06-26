@@ -20,6 +20,7 @@ connection = mysql.connector.connect(
 )
 cursor = connection.cursor()
 #--------------------------------------------------------------------------------------------
+@cross_origin
 @app.route('/mascotas', methods=['GET'])
 def obtener_mascotas():
     query = "Select * FROM mascotas;"
