@@ -6,25 +6,20 @@
 
 .card{
     border: solid 2px #628695;
-    margin-right: 20px;
+    padding: 10px;
     
 }
 
-.card2{
-    border: solid 2px #628695;
-    margin-right: 20px;
-}
-
-.card3{
-    border: solid 2px #628695;
-    margin-right: 20px;
+.card img {
+    padding: 10px;
 }
 
 .contenedor {
     display: flex;
     justify-content: center;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 3rem;
+    gap: 2rem;
 }
 
 .estrella {
@@ -33,3 +28,9 @@
     transition: color 0.3s;
 }
 
+@media (max-width:768px) {
+    .contenedor {
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -27,8 +27,8 @@ function mostrarRefugios(map){
     });
     
     let infoRefugio = `
-    <div>
-      <h2>${refugios[key].nombre}🐾</h2>
+    <div class="informacion">
+      <h2>${refugios[key].nombre} 🐾</h2>
       <p>Dirección: ${refugios[key].direccion}</p>
       <p>Número de contacto: ${refugios[key].telefono}</p>
       <p>Email: ${refugios[key].email}</p>
@@ -101,7 +101,7 @@ function crearMascotaConInfo(map, coord, especie, mascota){
       <p>Contacto: ${mascota.mail}</p>
       <br>
 
-      <form>
+      <form id="formulario">
         <label>Si usted ya encontró a esta mascota, presione el siguiente botón. Lo borraremos de la base de datos:</label>
         <button onclick="eliminarMascota(${mascota.id})">¡Encontré a mi mascota!</button>
       </form>
@@ -122,7 +122,7 @@ function crearMascotaConInfo(map, coord, especie, mascota){
 
 //Borra la mascota con el id pasado por parametro de la base de datos con el método DELETE, si el usuario confirma la acción
 function eliminarMascota(id){
-  let resultado = window.confirm('¿Estás seguro/a? Esta acción es irreversible.')
+  let resultado = window.confirm('¿Está seguro/a? Esta acción es irreversible.')
   if (resultado == true){
     let urlMascotas = `http://127.0.0.1:5001/mascotas/${id}`;
     fetch(urlMascotas, {
