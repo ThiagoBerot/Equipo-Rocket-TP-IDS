@@ -1,7 +1,6 @@
 #!bin/bash
 gnome-terminal
-cd backend
-cd API
+cd backend/API
 pipenv shell 
 export FLASK_DEBUG=1
 gnome-terminal
