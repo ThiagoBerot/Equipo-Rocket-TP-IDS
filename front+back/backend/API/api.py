@@ -85,17 +85,22 @@ def obtener_mascota(id):
 @app.route('/mascotas', methods=['POST'])
 def agregar_mascotas():
     nueva_mascota = request.get_json()
-    query = f"""INSERT INTO mascotas(nombre,tipo,sexo,edad,raza,color,tamanio,mail,descripcion,fecha_desaparicion,fecha_encontrado)
-            VALUES ('{nueva_mascota["nombre"]}','{nueva_mascota["tipo"]}','{nueva_mascota["sexo"]}','{nueva_mascota["edad"]}','{nueva_mascota["raza"]}',
-            '{nueva_mascota["color"]}','{nueva_mascota["tamanio"]}','{nueva_mascota["mail"]}','{nueva_mascota["descripcion"]}','{nueva_mascota["fecha_desaparicion"]}','{nueva_mascota["fecha_encontrado"]}');"""
+    
+    query = f"""INSERT INTO mascotas(nombre, tipo, sexo, edad, raza, color, tamanio, mail, descripcion, fecha_desaparicion, fecha_encontrado)
+                VALUES ('{nueva_mascota["nombre"]}', '{nueva_mascota["tipo"]}', '{nueva_mascota["sexo"]}', '{nueva_mascota["edad"]}', '{nueva_mascota["raza"]}',
+                        '{nueva_mascota["color"]}', '{nueva_mascota["tamanio"]}', '{nueva_mascota["mail"]}', '{nueva_mascota["descripcion"]}', 
+                        '{nueva_mascota["fecha_desaparicion"]}', {'NULL'});"""
     try:
         cursor.execute(query)
         connection.commit()
+        return jsonify({'message': 'Se ha agregado correctamente'}), 200
+    
     except SQLAlchemyError as err:
-       return jsonify({'message':'Se ha producido un error ' + str(err.__cause__)})
-    except:
-        return jsonify({'message':'Se ha producido un error'}),404
-    return jsonify({'message':'Se ha agregado correctamente ' + query}), 200
+        return jsonify({'message': 'Se ha producido un error en la base de datos ' + str(err)}), 500
+    
+    except Exception as e:
+        return jsonify({'message': 'Se ha producido un error ' + str(e)}), 500
+
 
 
 @app.route('/mascotas/<id>', methods=['PATCH'])

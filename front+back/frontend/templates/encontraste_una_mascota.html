@@ -2,7 +2,7 @@
 
 {% block title %}¿Perdiste una mascota?{% endblock %}
 
-{% block cssad %}<link rel="stylesheet" href="{{url_for('static', filename="css/encontraste_mascota.css")}}"/>{% endblock %}
+{% block cssad %}<link rel="stylesheet" href="{{url_for('static', filename='css/encontraste_mascota.css')}}"/>{% endblock %}
 
 {% block main %}
   <!-- SECCIÓN FORMULARIO -->
@@ -24,18 +24,18 @@
       <div class="contenedor_img_form">
 
         <div class="imagenes_form">
-          <img id="chica_y_perro" src="{{url_for('static', filename= "img/chica_y_perro.png")}}" alt="chica y perro" width="300" height="300"/>
-          <img id="chico_y_perrosilla" src="{{url_for('static', filename="img/chico_y_perrosilla.png")}}" alt="chico y perro en una silla" width="300", height="320">
+          <img id="chica_y_perro" src="{{url_for('static', filename= 'img/chica_y_perro.png') }}" alt="chica y perro" width="300" height="300"/>
+          <img id="chico_y_perrosilla" src="{{url_for('static', filename='img/chico_y_perrosilla.png')}}" alt="chico y perro en una silla" width="300", height="320">
 
         </div>
 
         <div id="formulario">
-          <form action="/form" method="post">
+          <form action="/form" method="post" id="mascotaForm">
             <ul>
               <li>
                 <label for="nombre">Indique el nombre de la mascota:</label>
                 <br>
-                <input type="text" id="nombre" name="nombre_animalf" placeholder="Ej: Manchita">
+                <input type="text" id="nombre" name="nombre" placeholder="Ej: Manchita">
               </li>
               <li>
                 <label for="animal">Indique si la mascota perdida es un perro o un gato:</label>
@@ -105,12 +105,12 @@
               <li>
                 <label for="fecha">¿Cuándo lo perdiste?</label>
                 <br>
-                <input type="date" id="fecha_encontrado" name="fecha_encontrado"/>
+                <input type="date" id="fecha_desaparicion" name="fecha_desaparicion"/>
               </li>
               <li>
                 <label for="mail">Mail de contacto:</label>
                 <br>
-                <input type="mail" id="mail" name="mail" placeholder="Ej: patricia@gmail.com" />
+                <input type="email" id="mail" name="mail" placeholder="Ej: patricia@gmail.com" />
               </li>
             </ul>
             <button type="submit" id="boton-formulario">Enviar datos</button>
@@ -277,4 +277,5 @@
   {% block jsad %}
   <!--validar formulario-->
   <script src="{{ url_for('static', filename='js/validar.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/enviardatos.js') }}"></script>
   {% endblock %}

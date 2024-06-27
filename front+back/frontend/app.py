@@ -14,12 +14,15 @@ def mapa():
 def mascotas():
     return render_template('mascotas.html')
 
-@app.route('/encontraste')
-def encontraste():    
-    return render_template('encontraste_una_mascota.html')
-        
-@app.route('/form', methods=['POST'])
-def registro():
+@app.route('/encontraste', methods=['GET', 'POST'])
+def encontraste():
+    if request.method == 'POST':
+        return redirect(url_for('formulario_enviado'))
+    else:
+        return render_template('encontraste_una_mascota.html')
+
+@app.route('/formulario_enviado')
+def formulario_enviado():
     return render_template('formulario_enviado.html')
 
 if __name__ == '__main__':
