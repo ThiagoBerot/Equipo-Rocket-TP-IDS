@@ -133,10 +133,6 @@ nav a:hover {
     font-family: "Epilogue", sans-serif;
 }
 
-.contenedor {
-    max-width: 1500px;
-}
-
 .contenido {
     padding: 30px;
 }
@@ -197,7 +193,9 @@ nav a:hover {
 }
 
 #Pasos h2 {
+    margin-top: 3rem;
     padding-top: 4vh;
+    font-weight: 500;
 }
 
 #Pasos img {
@@ -238,9 +236,11 @@ nav a:hover {
 }
 
 #Historias h2 {
+    margin-top: 3rem;
     padding-top: 2vh;
     font-size: 4vh;
     text-align: center;
+    font-weight: 500;
 }
 
 .contenedor1 {
@@ -274,6 +274,7 @@ nav a:hover {
 
 #Historia_1 {
     background: #333;
+    color: #ddd;
 }
 
 #Historia_2 {
@@ -327,6 +328,8 @@ nav a:hover {
 }
 
 #Preguntas_Frecuentes h2 {
+    margin-top: 3rem;
+    font-weight: 500;
     padding: 2vh;
     font-size: 4vh;
     text-align: center;
@@ -336,6 +339,7 @@ nav a:hover {
     padding: 0 20px 0 20px;
     max-width: 800px;
     width: 100%;
+    padding-bottom: 2rem;
 }
 
 .Lista {
@@ -550,8 +554,15 @@ nav a:hover {
     /*color de prueba, CAMBIARLO*/
 }
 
+@media (max-width: 1100px) {
+    #Pasos img {
+        width: 40%;
+        height: 40%;
+    }
+}
 
-@media (max-width: 500px){
+
+@media (max-width: 500px) {
     .footerInfo {
         padding: 1rem;
     }
