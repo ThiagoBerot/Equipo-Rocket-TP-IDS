@@ -2,7 +2,7 @@
   method: 'GET',
   host: '127.0.0.1:5001'
 }*/
-// pip install flask-cors
+// pip install Flask-Cors
 
 /* ---------------------------- FUNCIONES DEL MAPA -------------------------------- */
 
@@ -109,6 +109,9 @@ function crearMascotaConInfo(map, coord, especie, mascota){
   marker.addListener('click', function() {
     infoWindow.open(map, marker);
   });
+
+  //const button = document.getElementById("boton-filtro")
+
 }
 
 /* Inicia el mapa centrado en la zona de CABA.
@@ -122,6 +125,7 @@ function iniciarMap() {
   dibujaUnCirculo(map, coord);
   conseguirCoordenadas(map);
   mostrarRefugios(map);
+
 }
                                                                                                                                                  
 //Dibuja un circulo alrededor de la zona de CABA.
@@ -166,82 +170,140 @@ le va a preguntar a la base los datos seleccionados para
 que le pida a otra base las coordenadas de la descripcion.*/
 //Busca un marcador
 
-let filtro = []
 
-function filtrarAnimal(filtro){
-  document.getElementById('idFiltrarAnimal').innerText = `Ud. ha seleccionado la descripcion ${filtro[0]}, ${filtro[1]}, ${filtro[2]}, ${filtro[3]}, ${filtro[4]}, ${filtro[5]}`;
+const button = document.getElementById("boton-filtro");
+
+button.addEventListener("click", function(event){
+
+  console.log(datosFiltro.length)
+
+  if(datosVacios(datosFiltro)){
+    alert("Falta rellenar campos")
+    limpiarFiltro(datosFiltro);
+    iniciarMap();
+
+  }else{
+    
+    filtrarAnimal(datosFiltro);
+    limpiarFiltro(datosFiltro);
+    //iniciarMap();
+    
+  }
+});
+
+
+function datosVacios(filtro){
   
-  let url = "http://127.0.0.1:5001/mascotas"
-  fetch(url)
-    .then(response => response.json())
-    .then(data => filtrarMascota(data,filtro))
-    .catch(error => console.log(error))
+  if(filtro.length != 6){
+    return true
+  }else{
+    return false
+  }
 }
 
-function filtrarMascota(data,filtro){
 
-  console.log(data)
+function filtrarAnimal(filtro){
+  
+  let urlCoordenadas = "http://127.0.0.1:5001/coordenadas";
+  let urlMascotas = "http://127.0.0.1:5001/mascotas";
 
+  fetch(urlCoordenadas)
+    .then(response => response.json())
+    .then(dataCoordenadas => {
+      fetch(urlMascotas)
+        .then(response => response.json())
+        .then(dataMascotas => {
+          filtrarMascota(dataCoordenadas, dataMascotas, filtro);
+        })
+        .catch(error => console.log(error));
+    })
+    .catch(error => console.log(error));
+}
+
+
+function filtrarMascota(dataCoordenadas,dataMascotas,filtro){
+
+  let longitud = dataCoordenadas.length;
   let contador = 0;
-  let listaCoincidencias = []
-  let longitud = data.length
-
+ 
   for(let i=0; i < longitud; i++){
 
-    if((filtro[0] == data[i]["tipo"]) && (filtro[1] == data[i]["sexo"]) && (filtro[2] == data[i]["color"]) && (filtro[3] == data[i]["raza"]) && (filtro[4] == data[i]["edad"])){
+    console.log(dataMascotas[i]["tipo"], filtro[0])
+    console.log(dataMascotas[i]["sexo"], filtro[1])
+    console.log(dataMascotas[i]["color"], filtro[2])
+    console.log(dataMascotas[i]["raza"], filtro[3])
+    console.log(dataMascotas[i]["edad"], filtro[4])
+   
+    /*if((filtro[0] == dataMascotas[i]["tipo"]) && (filtro[1] == dataMascotas[i]["sexo"]) && (filtro[2] == dataMascotas[i]["color"]) && (filtro[3] == dataMascotas[i]["raza"]) && (filtro[4] == dataMascotas[i]["edad"])){
       contador++;
-      listaCoincidencias.push(data[i]["nombre"])
-      //document.getElementById('idCoincidencia').innerText = `Se encontro a ${data[i]["nombre"]}, encontrado en la fecha ${data[i]["fecha_desaparicion"]}`
+
+      document.getElementById('idCoincidencia').innerText = `Se encontro a ${dataMascotas[i]["nombre"]}, encontrado en la fecha ${dataMascotas[i]["fecha_desaparicion"]}`
+    }*/
+    
+      if(filtro[0] == dataMascotas[i]["tipo"]){
+        ontador++;
+      document.getElementById('idCoincidencia').innerText = `Se encontro a ${dataMascotas[i]["nombre"]}, encontrado en la fecha ${dataMascotas[i]["fecha_desaparicion"]}`;
     }
-    //document.getElementById('idCoincidencia').innerText = `No se encontro una mascota con esa descripcion, lo sentimos mucho.`;
+
   }
 
   if(contador == 0){
     document.getElementById('idCoincidencia').innerText = `No se encontro una mascota con esa descripcion, lo sentimos mucho.`;
-  }else{
-    
   }
-
-
 }
 
+
+
+let datosFiltro = [];
+
 function seleccionarTipo(){
-  let filtroColor = document.getElementById('filtroTipo');
+  let filtroTipo = document.getElementById('filtroTipo');
   let tipo = filtroTipo.value;
-  filtro.push(tipo)
+  datosFiltro.push(tipo);
 }
 
 function seleccionarSexo(){
-  let filtroColor = document.getElementById('filtroSexo');
+  let filtroSexo = document.getElementById('filtroSexo');
   let sexo = filtroSexo.value;
-  filtro.push(sexo)
+  datosFiltro.push(sexo);
 }
 
 function seleccionarColor(){
   let filtroColor = document.getElementById('filtroColor');
   let color = filtroColor.value;
-  filtro.push(color)
+  datosFiltro.push(color);
 }
 
 function seleccionarRaza(){
   let filtroRaza = document.getElementById('filtroRaza');
   let raza = filtroRaza.value;
-  filtro.push(raza)
+  datosFiltro.push(raza);
 }
 
 function seleccionarEdad(){
   let filtroEdad = document.getElementById('filtroEdad');
   let edad = filtroEdad.value;
-  filtro.push(edad)
+  datosFiltro.push(edad);
 }
 
 function seleccionarFecha(){
   let filtroFecha = document.getElementById('filtroFecha');
   let fecha = filtroFecha.value;
-  filtro.push(fecha)
-  
+  datosFiltro.push(fecha);
+}
 
-  filtrarAnimal(filtro)
+
+function limpiarFiltro(filtro){
+
+  document.getElementById("filtroTipo").value='tipo';
+  document.getElementById("filtroSexo").value='sexo';
+  document.getElementById("filtroColor").value='color';
+  document.getElementById("filtroRaza").value='raza';
+  document.getElementById("filtroEdad").value='edad';
+  document.getElementById("filtroFecha").value='date';
+
+  filtro = [];
+  
 }
 
 /* ---------------------------------------------------------------------------------- */
