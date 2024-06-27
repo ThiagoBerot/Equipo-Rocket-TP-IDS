@@ -205,7 +205,7 @@ button.addEventListener("click", function(event){
     
     filtrarAnimal(datosFiltro);
     limpiarFiltro(datosFiltro);
-    //iniciarMap();
+    iniciarMap();
     
   }
 });
@@ -260,7 +260,7 @@ function filtrarMascota(dataCoordenadas,dataMascotas,filtro){
     }*/
     
       if(filtro[0] == dataMascotas[i]["tipo"]){
-        ontador++;
+        contador++;
       document.getElementById('idCoincidencia').innerText = `Se encontro a ${dataMascotas[i]["nombre"]}, encontrado en la fecha ${dataMascotas[i]["fecha_desaparicion"]}`;
     }
 
