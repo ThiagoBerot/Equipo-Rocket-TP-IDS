@@ -190,33 +190,15 @@ que le pida a otra base las coordenadas de la descripcion.*/
 //Busca un marcador
 
 
-const button = document.getElementById("boton-filtro");
 
-button.addEventListener("click", function(event){
-
-  console.log(datosFiltro.length)
-
-  if(datosVacios(datosFiltro)){
-    alert("Falta rellenar campos")
-    limpiarFiltro(datosFiltro);
-    iniciarMap();
-
-  }else{
-    
-    filtrarAnimal(datosFiltro);
-    limpiarFiltro(datosFiltro);
-    iniciarMap();
-    
-  }
-});
 
 
 function datosVacios(filtro){
   
-  if(filtro.length != 6){
-    return true
-  }else{
-    return false
+  for(mascota in filtro){
+    if(filtro["mascota"] == ""){
+      return false
+    }
   }
 }
 
@@ -242,73 +224,71 @@ function filtrarAnimal(filtro){
 
 function filtrarMascota(dataCoordenadas,dataMascotas,filtro){
 
+  let listaCoincidencias = [];
   let longitud = dataCoordenadas.length;
   let contador = 0;
  
-  for(let i=0; i < longitud; i++){
+  for(let i=0; i <= longitud; i++){
 
-    console.log(dataMascotas[i]["tipo"], filtro[0])
-    console.log(dataMascotas[i]["sexo"], filtro[1])
-    console.log(dataMascotas[i]["color"], filtro[2])
-    console.log(dataMascotas[i]["raza"], filtro[3])
-    console.log(dataMascotas[i]["edad"], filtro[4])
-   
-    /*if((filtro[0] == dataMascotas[i]["tipo"]) && (filtro[1] == dataMascotas[i]["sexo"]) && (filtro[2] == dataMascotas[i]["color"]) && (filtro[3] == dataMascotas[i]["raza"]) && (filtro[4] == dataMascotas[i]["edad"])){
+    if((filtro["tipo"] == dataMascotas[i]["tipo"]) && 
+        (filtro["sexo"] == dataMascotas[i]["sexo"]) && 
+        (filtro["color"] == dataMascotas[i]["color"] || filtro["color"] == "otro") && 
+        (filtro["raza"] == dataMascotas[i]["raza"] || filtro["raza"] == "otro") &&
+        ((filtro["edad"] == dataMascotas[i]["edad"] || filtro["edad"] == "otro"))){
+      
       contador++;
-
-      document.getElementById('idCoincidencia').innerText = `Se encontro a ${dataMascotas[i]["nombre"]}, encontrado en la fecha ${dataMascotas[i]["fecha_desaparicion"]}`
-    }*/
-    
-      if(filtro[0] == dataMascotas[i]["tipo"]){
-        contador++;
-      document.getElementById('idCoincidencia').innerText = `Se encontro a ${dataMascotas[i]["nombre"]}, encontrado en la fecha ${dataMascotas[i]["fecha_desaparicion"]}`;
+      listaCoincidencias.push(`Se encontro a ${dataMascotas[i]["nombre"]}, encontrado en la fecha ${dataMascotas[i]["fecha_desaparicion"]}\n`);
     }
-
   }
 
+  
   if(contador == 0){
     document.getElementById('idCoincidencia').innerText = `No se encontro una mascota con esa descripcion, lo sentimos mucho.`;
+  }else{
+    
+    document.getElementById('idCoincidencia').innerText = listaCoincidencias.join("");
   }
+ 
 }
 
 
 
-let datosFiltro = [];
+let datosFiltro = {"tipo":"", "sexo":"", "color":"", "raza":"", "edad":"", "fecha":""};
 
 function seleccionarTipo(){
   let filtroTipo = document.getElementById('filtroTipo');
   let tipo = filtroTipo.value;
-  datosFiltro.push(tipo);
+  datosFiltro["tipo"] = tipo;
 }
 
 function seleccionarSexo(){
   let filtroSexo = document.getElementById('filtroSexo');
   let sexo = filtroSexo.value;
-  datosFiltro.push(sexo);
+  datosFiltro["sexo"] = sexo;
 }
 
 function seleccionarColor(){
   let filtroColor = document.getElementById('filtroColor');
   let color = filtroColor.value;
-  datosFiltro.push(color);
+  datosFiltro["color"] = color;
 }
 
 function seleccionarRaza(){
   let filtroRaza = document.getElementById('filtroRaza');
   let raza = filtroRaza.value;
-  datosFiltro.push(raza);
+  datosFiltro["raza"] = raza;
 }
 
 function seleccionarEdad(){
   let filtroEdad = document.getElementById('filtroEdad');
   let edad = filtroEdad.value;
-  datosFiltro.push(edad);
+  datosFiltro["edad"] = edad;
 }
 
 function seleccionarFecha(){
   let filtroFecha = document.getElementById('filtroFecha');
   let fecha = filtroFecha.value;
-  datosFiltro.push(fecha);
+  datosFiltro["fecha"] = fecha;
 }
 
 
@@ -319,11 +299,41 @@ function limpiarFiltro(filtro){
   document.getElementById("filtroColor").value='color';
   document.getElementById("filtroRaza").value='raza';
   document.getElementById("filtroEdad").value='edad';
-  document.getElementById("filtroFecha").value='date';
+  document.getElementById("filtroFecha").value='';
 
-  filtro = [];
+  //filtro["tipo"] = "";
+  //filtro["sexo"] = "";
+  //filtro["color"] = "";
+  //filtro["raza"] = "";
+  //filtro["edad"] = "";
+  //filtro["fecha"] = "";
+  
+
+
+  console.log(filtro)
   
 }
+
+
+const button = document.getElementById("boton-filtro");
+
+button.addEventListener("click", function(event){
+
+  console.log(datosFiltro.length)
+
+  if(datosVacios(datosFiltro)){
+    limpiarFiltro(datosFiltro);
+    alert("Falta rellenar campos");
+    iniciarMap();
+
+  }else{
+    
+    filtrarAnimal(datosFiltro);
+    limpiarFiltro(datosFiltro);
+    iniciarMap();
+    
+  }
+});
 
 /* ---------------------------------------------------------------------------------- */
 
