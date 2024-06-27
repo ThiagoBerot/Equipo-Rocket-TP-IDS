@@ -129,13 +129,22 @@ h1{
 
 .centros_animales {
     text-align: center;
-    margin-top: 80px;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin: 80px 20px 0 20px;
 }
 
 .centros_animales a{
     font-size: 20px;
+    text-decoration: none;
+    background-color: #6c5e5e;
+    padding: 10px;
+    color: white;
+    border-radius: 15px;
+    transition: 0.5s;
+}
+
+.centros_animales a:hover{
+    color: black;
+    background-color: #ddd;
 }
 
 .centros_animales h2{
@@ -161,6 +170,7 @@ h1{
     display: flex;
     width: 80%;
     justify-content: center;
+    align-items: center;
     margin-left: auto;
     margin-right: auto;
 }
@@ -175,8 +185,14 @@ h1{
     display: flex;
     width: 80%;
     justify-content: center;
+    align-items: center;
     margin-left: auto;
     margin-right: auto;
+}
+
+.texto{
+    padding: 0 0 10px 10px;
+    max-width: 60%;
 }
 
 .info_centro_animales1 h2, .info_centro_animales1 h3, .info_centro_animales1 p{
@@ -200,6 +216,11 @@ h1{
 }
 
 /* SLIDER */
+
+.imagenes {
+    width: 100%;
+}
+
 .slider-frame {
     height: auto;
 	overflow: hidden;
@@ -233,4 +254,48 @@ h1{
 	
 	75% {margin-left: -300%;}
 	100% {margin-left: -300%;}
+}
+
+@media (max-width:1100px) {
+    .encontraste_mascota_content p {
+        font-size: 16px;
+    }
+    h1 {
+        font-size: 30px;
+    }
+    #formulario {
+        padding: 20px;
+    }
+    .imagenes_form {
+        display: none;
+    }
+    .centros_animales h2{
+        font-size: 30px;
+    }
+    .centros_animales p{
+        font-size: 16px;
+    }
+    .centros_animales a{
+        font-size: 16px;
+    }
+    .texto {
+        font-size: 16px;
+    }
+}  
+
+@media (max-width:900px) {
+    .info_centro_animales1 {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .info_centro_animales2 {
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
+    .info_centro_animales2 h2, .info_centro_animales2 h3, .info_centro_animales2 p {
+        margin-left: 0;
+    }
+    .texto {
+        max-width: 100%;
+    }
 }

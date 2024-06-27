@@ -8,7 +8,7 @@
   <!-- SECCIÓN FORMULARIO -->
 
    <section class="contenido">
-    <div class="encontraste_mascota_content">
+    <div class="encontraste_mascota_content" data-aos="fade-up" data-aos-duration="1000">
       <div class="titulo_desc">
         <h1>¿Perdiste una mascota?</h1>
         <p>
@@ -128,7 +128,7 @@
     </div>  
 
     <!-- SECCIÓN HOGARES DE TRÁNSITO -->
-    <div class="centros_animales">
+    <div class="centros_animales" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1000">
       <h2>🐾 Hogares de tránsito 🐾</h2>
       <p>En nuestros hogares de tránsito para mascotas, ofrecemos una segunda oportunidad a animales
          que perdieron su hogar o nunca tuvieron uno. Acá, cada mascota recibe el cuidado y el cariño 
@@ -139,10 +139,10 @@
          nuevo hogar. Al adoptar, no solo encontrás un nuevo amigo, sino que también estas ayudando a reducir 
          la cantidad de animales sin hogar en nuestra comunidad. ¡Vení y hacé la diferencia hoy mismo!</p>
           <br>
-         <a href="{{url_for('mapa')}}">-->  ¡Miralos en el mapa!  <--</a>
+         <a href="{{url_for('mapa')}}"><---  ¡Miralos en el mapa!  --></a>
     </div>
 
-    <div class="info_centro_animales1">
+    <div class="info_centro_animales1" data-aos="fade-right" data-aos-duration="1000">
       <!--En info_centro_animales1, el texto está a la izquierda de la imagen-->
       <div class="texto">
         <h2>Mascotas en adopción Argentina</h2>
@@ -176,7 +176,7 @@
     </div>
 
 
-    <div class="info_centro_animales2">  
+    <div class="info_centro_animales2" data-aos="fade-left" data-aos-duration="1000">  
         <!--En info_centro_animales2, el texto está a la derecha de la imagen--> 
       <div class="imagenes">
         <div class="slider-frame">
@@ -206,7 +206,7 @@
       </div>
     </div>
 
-    <div class="info_centro_animales1">
+    <div class="info_centro_animales1" data-aos="fade-right" data-aos-duration="1000">
       <!--En info_centro_animales1, el texto está a la izquierda de la imagen-->
       <div class="texto">
         <h2>Hogar de protección Lourdes</h2>
@@ -239,7 +239,7 @@
       </div>
     </div>
 
-    <div class="info_centro_animales2">  
+    <div class="info_centro_animales2" data-aos="fade-left" data-aos-duration="1000">  
       <!--En info_centro_animales2, el texto está a la derecha de la imagen--> 
       <div class="imagenes">
         <div class="slider-frame">
@@ -270,7 +270,11 @@
     </div>
   </section>
   
+
+
+  {% endblock %}
+
+  {% block jsad %}
   <!--validar formulario-->
   <script src="{{ url_for('static', filename='js/validar.js') }}"></script>
-
   {% endblock %}
