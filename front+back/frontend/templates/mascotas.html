@@ -11,9 +11,12 @@
       </div>
       <div class="grillaPerdidos" id = "mascotas">
       </div>
-      <script src="{{ url_for('static', filename='js/mascotas.js') }}"></script>
       </section>
 
+{% endblock %}
+
+{% block jsad %} 
+<script src="{{ url_for('static', filename='js/mascotas.js') }}"></script>
 {% endblock %}
 
 <!--{% for i in range(1, 10) %}

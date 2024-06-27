@@ -66,6 +66,7 @@ nav a:hover {
 .hamburger {
     display: none;
     cursor: pointer;
+    margin-right: 1rem;
 }
 
 .bar {
@@ -230,6 +231,10 @@ nav a:hover {
 #Contenedor_Pasos div p {
     margin: 5px;
     font-size: 2vh;
+}
+
+#Historias {
+    overflow: hidden;
 }
 
 #Historias h2 {
@@ -409,9 +414,6 @@ nav a:hover {
 }
 
 @media(max-width: 1200px){
-    /*#Inicio {
-        background-image: none;
-    }*/
     #Historias {
         display: none;
     }

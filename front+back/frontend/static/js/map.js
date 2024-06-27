@@ -9,10 +9,10 @@
 //Muestra los refugios de la vista "¿Perdiste una mascota?" como marcadores en el mapa, al clickearlos aparece una ventana con su nombre
 function mostrarRefugios(map){
   let refugios = {
-    'refugio1': {lat: -34.58387452491165, lng :-58.406567244141655, nombre: 'Mascotas en adopción Argentina'},
-    'refugio2': {lat: -34.60302588670758, lng:  -58.4084567788676, nombre: 'Refugio el gran Pirincho'},
-    'refugio3': {lat: -34.61663306715347, lng: -58.38580257957804, nombre: 'Hogar de protección Lourdes'},
-    'refugio4': {lat: -34.56753902849066, lng: -58.43550243629815, nombre: 'Refugio Amor Animal'}
+    'refugio1': {lat: -34.58387452491165, lng :-58.406567244141655, nombre: 'Mascotas en adopción Argentina', direccion: '2494 Av.Cnel Díaz, Cdad. Autónoma de Buenos Aires', telefono: '+54 11 1234-5678', email: 'contacto_MEAP@gmail.com'},
+    'refugio2': {lat: -34.60302588670758, lng:  -58.4084567788676, nombre: 'Refugio el gran Pirincho', direccion: 'Lavalle 3000, C1088 Cdad. Autónoma de Buenos Aires', telefono: '+54 11 8765-4321', email: 'info_elgranpirincho@hotmail.com'},
+    'refugio3': {lat: -34.61663306715347, lng: -58.38580257957804, nombre: 'Hogar de protección Lourdes', direccion: 'Chile 1393, C1098 Buenos Aires', telefono: '+54 11 4717-3124', email: 'hogarlourdes@gmail.com'},
+    'refugio4': {lat: -34.56753902849066, lng: -58.43550243629815, nombre: 'Refugio Amor Animal', direccion: 'Av. Jorge Newbery 1761, C1426 Cdad. Autónoma de Buenos Aires', telefono: '+54 11 9876-5432', email: 'amoranimal@gmail.com'}
     };
   
 
@@ -28,7 +28,10 @@ function mostrarRefugios(map){
     
     let infoRefugio = `
     <div>
-      <h1>${refugios[key].nombre}</h1>
+      <h2>${refugios[key].nombre}🐾</h2>
+      <p>Dirección: ${refugios[key].direccion}</p>
+      <p>Número de contacto: ${refugios[key].telefono}</p>
+      <p>Email: ${refugios[key].email}</p>
     </div>
     `
     ;
@@ -87,18 +90,21 @@ function crearMascotaConInfo(map, coord, especie, mascota){
   });
 
   let infoMascota = `
-    <div>
+    <div class="informacion">
       <h2>${mascota.nombre}</h2>
-      <p><strong>Raza:</strong> ${mascota.raza}</p>
-      <p><strong>Edad:</strong> ${mascota.edad}</p>
-      <p><strong>Tamaño:</strong> ${mascota.tamanio}</p>
-      <p><strong>Color:</strong> ${mascota.color}</p>
-      <p><strong>Descripción:</strong> ${mascota.descripcion}</p>
-      <p><strong>Fecha de desaparición:</strong> ${new Date(mascota.fecha_desaparicion).toLocaleDateString()}</p>
-      <p><strong>Contacto:</strong> ${mascota.mail}</p>
+      <p>Raza: ${mascota.raza}</p>
+      <p>Edad: ${mascota.edad}</p>
+      <p>Tamaño: ${mascota.tamanio}</p>
+      <p>Color: ${mascota.color}</p>
+      <p>Descripción: ${mascota.descripcion}</p>
+      <p>Fecha de desaparición: ${new Date(mascota.fecha_desaparicion).toLocaleDateString()}</p>
+      <p>Contacto: ${mascota.mail}</p>
       <br>
-      <label>Si usted ya encontró a esta mascota, presione el siguiente botón. Lo borraremos de la base de datos:</label>
-      <button>¡Encontré a mi mascota!</button>
+
+      <form>
+        <label>Si usted ya encontró a esta mascota, presione el siguiente botón. Lo borraremos de la base de datos:</label>
+        <button onclick="eliminarMascota(${mascota.id})">¡Encontré a mi mascota!</button>
+      </form>
     </div>
   `;
 
@@ -111,6 +117,19 @@ function crearMascotaConInfo(map, coord, especie, mascota){
   });
 
   //const button = document.getElementById("boton-filtro")
+
+}
+
+//Borra la mascota con el id pasado por parametro de la base de datos con el método DELETE, si el usuario confirma la acción
+function eliminarMascota(id){
+  let resultado = window.confirm('¿Estás seguro/a? Esta acción es irreversible.')
+  if (resultado == true){
+    let urlMascotas = `http://127.0.0.1:5001/mascotas/${id}`;
+    fetch(urlMascotas, {
+      method: 'DELETE'
+    })
+    .then(response => response.json())
+  }
 
 }
 

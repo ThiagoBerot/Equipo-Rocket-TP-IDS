@@ -70,13 +70,11 @@
         <br>
         <span id="idCoincidencia"><br></span>
 
-        <!-- Acá va la api -->
-        <!-- Empieza backend -->
         <div id="Mapa"></div>
-        <script src="{{ url_for('static', filename='js/map.js') }}"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
-        <!-- Termina backend-->
+        
+{% endblock %}
 
-
-
+{% block jsad %}
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
 {% endblock %}
